@@ -6,6 +6,7 @@ $(document).ready(function(){
         $('body').toggleClass('nav-expanded');
     });
     
+    
     $('#nav-close').on('click',function(e)
     {
         e.preventDefault();

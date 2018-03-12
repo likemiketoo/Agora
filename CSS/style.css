@@ -117,23 +117,41 @@ body.nav-expanded
 
 #titleName
 {
+    position: fixed;
+    dispay: block;
     font-family: 'PanamaBold';
     font-size: 25px;
-    width: 2500px;
+    left: 50%;
+    width: 250px;
     color: #000000;
     margin: 0 auto;
+    
     text-align: center;
     text-decoration: none;
     
-    -webkit-transition: right 0.3s ease-in-out 0s, color 0.4s ease-in-out 0s;
-    -moz-transition: right 0.3s ease-in-out 0s, color 0.4s ease-in-out 0s;
-    -o-transition: right 0.3s ease-in-out 0s, color 0.4s ease-in-out 0s;
-    transition: right 0.3s ease-in-out 0s, color 0.4s ease-in-out 0s;
+    -webkit-transition: left 0.3s ease-in-out 0s, color 0.4s ease-in-out 0s;
+    -moz-transition: left 0.3s ease-in-out 0s, color 0.4s ease-in-out 0s;
+    -o-transition: left 0.3s ease-in-out 0s, color 0.4s ease-in-out 0s;
+    transition: left 0.3s ease-in-out 0s, color 0.4s ease-in-out 0s;
+    
+    transform: translate(-50%);
+    z-index: 19;
 }
 
 #titleName:hover
 {
     color: #ff595c;
+}
+
+/*moves title name on expanded*/
+.nav-expanded #titleName
+{
+    left: 65%;
+    
+    -webkit-transition: left 0.3s ease-in-out 0s;
+    -moz-transition: left 0.3s ease-in-out 0s;
+    -o-transition: left 0.3s ease-in-out 0s;
+    transition: left 0.3s ease-in-out 0s;
 }
  
 #nav-close
