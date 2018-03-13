@@ -261,7 +261,7 @@ body.nav-expanded
 /*moves title name on expanded*/
 .nav-expanded #titleName
 {
-    left: 65%;
+    left: 62%;
     
     -webkit-transition: left 0.3s ease-in-out 0s;
     -moz-transition: left 0.3s ease-in-out 0s;
@@ -387,6 +387,76 @@ nav
     margin: 0.1em 0.8em -0.1em 0;
     opacity: 1;
 }
+
+#splashDiv
+{
+    margin-top: 50px;
+    padding: 0;
+    width: 100%;
+    height: 400px;
+}
+
+#splashRow
+{
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+/*    border: 1px solid green;*/
+}
+
+#splashLogo
+{
+    height: 100%;
+    background-image: url(/assets/AgoraTextDemo3Trans.png);
+    background-position: center;
+    background-size: cover;
+}
+
+#splashTextBox
+{
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+#splashText
+{
+    background: transparent;
+    height: 100%;
+    color: #ffffff;
+    margin: 0 auto;
+    padding-top: 130px;
+    font-size: 30px;
+    text-align: center;
+    background-position: center;
+    background-size: cover;
+}
+
+.glyphicon-search
+{
+    color: #f517aa;
+}
+
+.form-control
+{
+    color: #ff595c
+}
+
+.form-control::-webkit-input-placeholder
+{
+    color: #f517aa;
+    opacity: .45;
+}
+
+#searchDiv
+{
+    background: #5b5e63;
+    padding-top: 15px;
+    height: 80px;
+    width: 100%;
+/*    border: 1px solid red;*/
+}
+
 
 /*fonts*/
 
