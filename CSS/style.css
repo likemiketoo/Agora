@@ -2,7 +2,7 @@ body
 {
     background: #393939;
     font-family: 'Roboto', thin;
-    height: 3800px;
+    height: 2000px;
 }
 
 a.nav-expander
@@ -390,6 +390,7 @@ nav
 
 #splashDiv
 {
+    background: #000000;
     margin-top: 50px;
     padding: 0;
     width: 100%;
@@ -409,12 +410,14 @@ nav
     height: 100%;
     background-image: url(/assets/AgoraTextDemo3Trans.png);
     background-position: center;
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 #splashTextBox
 {
     height: 100%;
+    padding: 0 auto;
     background-position: center;
     background-size: cover;
 }
@@ -425,11 +428,140 @@ nav
     height: 100%;
     color: #ffffff;
     margin: 0 auto;
-    padding-top: 130px;
+    padding-top: 85px;
     font-size: 30px;
     text-align: center;
     background-position: center;
     background-size: cover;
+}
+
+#learnMore
+{
+    text-decoration: none;
+    color: #f517aa;
+    font-size: 25px;
+    
+    -webkit-transition: color 0.2s ease-in-out;
+    -moz-transition: color 0.2s ease-in-out;
+    -o-transition: color 0.2s ease-in-out;
+    transition: color 0.2s ease-in-out;
+}
+
+#learnMore:hover
+{
+    text-decoration: none;
+    color: #ff595c;
+    font-size: 25px;
+    
+    -webkit-transition: color 0.2s ease-in-out;
+    -moz-transition: color 0.2s ease-in-out;
+    -o-transition: color 0.2s ease-in-out;
+    transition: color 0.2s ease-in-out;
+}
+
+#searchDiv
+{
+    background: #5b5e63;
+    padding-top: 15px;
+    height: 80px;
+    width: 100%;
+/*    border: 1px solid red;*/
+}
+
+#servLabelDiv
+{
+    font-family: 'PanamaLight';
+    width: 100%;
+    height: 150px;
+    margin: 0 auto;
+    background: #ffffff;
+    color: #f517aa;
+    font-size: 75px;
+    text-align: center;
+}
+
+#servSub
+{
+    font-family: 'Comfortaa';
+    margin: 0 auto;
+    color: #939393;
+    font-size: 20px;
+    text-align: center;
+}
+
+#servDivOut
+{
+    width: 100%;
+    height: 800px;
+    padding: 30px;
+}
+
+#servDivInner
+{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 1px solid red;
+}
+
+#servRow1
+{
+    width: 100%;
+    height: 220px;
+    margin: 0 auto;
+    border: 1px solid green;
+}
+
+#servCol
+{
+    width: 33.33%;
+    height: 100%;
+    overflow: hidden;
+    padding: 0;
+    border: 1px solid blue;
+}
+
+#hair, #tutor, #nails, #salon, #shoes, #repair
+{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    border: 1px solid yellow;
+}
+
+#hair
+{
+    background-image: url(/assets/haircut.jpg);
+}
+
+#tutor
+{
+    background-image: url(/assets/tutor.jpg);
+}
+
+#nails
+{
+
+    background-image: url(/assets/nails.jpg);
+}
+
+#salon
+{
+
+    background-image: url(/assets/salon.png);
+}
+
+#shoes
+{
+
+    background-image: url(/assets/shoes.png);
+}
+
+#repair
+{
+
+    background-image: url(/assets/phone.jpg);
 }
 
 .glyphicon-search
@@ -448,14 +580,7 @@ nav
     opacity: .45;
 }
 
-#searchDiv
-{
-    background: #5b5e63;
-    padding-top: 15px;
-    height: 80px;
-    width: 100%;
-/*    border: 1px solid red;*/
-}
+
 
 
 /*fonts*/
