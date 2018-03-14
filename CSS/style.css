@@ -462,8 +462,8 @@ nav
 #searchDiv
 {
     background: #5b5e63;
-    padding-top: 15px;
-    height: 80px;
+    padding-top: 35px;
+    height: 120px;
     width: 100%;
 /*    border: 1px solid red;*/
 }
@@ -474,7 +474,7 @@ nav
     width: 100%;
     height: 150px;
     margin: 0 auto;
-    background: #ffffff;
+    background: #ededed;
     color: #f517aa;
     font-size: 75px;
     text-align: center;
@@ -491,9 +491,10 @@ nav
 
 #servDivOut
 {
-    width: 100%;
-    height: 800px;
-    padding: 30px;
+    width: calc(100vw - ((100vw - 100%)));
+    height: 100vw;
+    margin: 0 auto;
+    padding: 70px;
 }
 
 #servDivInner
@@ -501,15 +502,15 @@ nav
     width: 100%;
     height: 100%;
     padding: 0;
-    border: 1px solid red;
+/*    border: 1px solid red;*/
 }
 
-#servRow1
+#servRow
 {
     width: 100%;
-    height: 220px;
+    height: 33.33%;
     margin: 0 auto;
-    border: 1px solid green;
+/*    border: 1px solid green;*/
 }
 
 #servCol
@@ -518,21 +519,65 @@ nav
     height: 100%;
     overflow: hidden;
     padding: 0;
-    border: 1px solid blue;
+/*    border: 1px solid blue;*/
 }
 
-#hair, #tutor, #nails, #salon, #shoes, #repair
+#hair, #tutor, #nails, #salon, #shoes, #repair, #tailor
 {
     width: 100%;
     height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
     background-size: cover;
     background-position: center;
-    border: 1px solid yellow;
+/*    border: 1px solid yellow;*/
+    
+    transition: all .2s ease-in-out;
+}
+
+#hair:hover, #tutor:hover, #nails:hover, #salon:hover, #shoes:hover, #repair:hover, #tailor:hover
+{
+    transform: scale(1.1);
+    filter:blur(4px);
+    
+    transition: all .2s ease-in-out;
 }
 
 #hair
 {
     background-image: url(/assets/haircut.jpg);
+}
+
+#servText
+{
+    font-family: 'PanamaLight';
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    padding-top: 40%;
+    padding-bottom: 40%;
+    opacity: 0;
+    text-align: center;
+    z-index: 10;
+    
+    font-size: 35px;
+    color: #ffffff;
+}
+
+#servText:hover
+{
+    opacity: 1;
+    transition: all .2s ease-in-out;
+}
+
+#servText:hover + #hair, #servText:hover + #tutor, #servText:hover + #nails, #servText:hover + #salon, #servText:hover + #shoes, #servText:hover + #repair, #servText:hover + #tailor
+{
+    transform: scale(1.1);
+    filter:blur(4px);
+    
+    transition: all .2s ease-in-out;
 }
 
 #tutor
@@ -542,27 +587,29 @@ nav
 
 #nails
 {
-
     background-image: url(/assets/nails.jpg);
 }
 
 #salon
 {
-
     background-image: url(/assets/salon.png);
 }
 
 #shoes
 {
-
     background-image: url(/assets/shoes.png);
 }
 
 #repair
 {
-
     background-image: url(/assets/phone.jpg);
 }
+
+#tailor
+{
+    background-image: url(/assets/tailor.jpg);
+}
+
 
 .glyphicon-search
 {
@@ -595,4 +642,12 @@ nav
 {
     font-family: 'PanamaLight';
     src: url('/fonts/Panama-Light.ttf');
+}
+
+@media (max-width: 780px)
+{
+    #servDivOut
+    {
+        padding: 30px;
+    }
 }
