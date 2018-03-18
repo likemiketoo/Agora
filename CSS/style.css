@@ -3,7 +3,7 @@
     --main-color:#f517aa;
     --secondary-color:#ff595c;
     --main-black-color:#121212;
-    --main-grey-color:#121212;
+    --main-grey-color:#5b5e63;
     --main-white-color:#ededed;
     --main-body-color:#393939;
 }
@@ -12,8 +12,18 @@ body
 {
     background: var(--main-body-color);
     font-family: 'Roboto', thin;
-    height: 2000px;
+    height: 1750px;
+    width: 100%;
+    margin-right: 0;
+    padding-right: 0;
+    margin-top: 50px;
 }
+
+a:hover
+{
+    text-decoration: none;    
+}
+
 
 a.nav-expander
 {
@@ -120,7 +130,7 @@ body.nav-expanded
     padding: 0;
     padding-top: 10px;
     margin: 0 auto;
-    
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 #titlePic
@@ -128,7 +138,6 @@ body.nav-expanded
     background-image: url(/assets/AgoraClean.png);
     background-position: center;
     background-size: cover;
-    
     position: fixed;
     top: 0;
     width: 100%;
@@ -401,7 +410,6 @@ nav
 #splashDiv
 {
     background: #000000;
-    margin-top: 50px;
     padding: 0;
     width: 100%;
     height: 400px;
@@ -452,7 +460,7 @@ nav
     font-size: 25px;
     background: transparent;
     border: none;
-    margin-top: 5px;
+    margin-top: 10px;
     
     -webkit-transition: color 0.2s ease-in-out, background 0.2s ease-in-out;
     -moz-transition: color 0.2s ease-in-out, background 0.2s ease-in-out;
@@ -476,11 +484,16 @@ nav
 
 #searchDiv
 {
-    background: #5b5e63;
+    background: var(--main-grey-color);
     padding-top: 35px;
     height: 120px;
     width: 100%;
 /*    border: 1px solid red;*/
+}
+
+.input-group-lg
+{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 .glyphicon-search
@@ -490,7 +503,7 @@ nav
 
 .form-control
 {
-    color: #ff595c
+    color: #ff595c;
 }
 
 .form-control::-webkit-input-placeholder
@@ -501,6 +514,8 @@ nav
 
 #servTrans
 {
+    width: 100%;
+    margin-bottom: 25px;
     padding-left: 100px;
     padding-right: 100px;
     background: linear-gradient(180deg, #5b5e63 50%, var(--main-body-color) 50%);
@@ -516,6 +531,8 @@ nav
     color: var(--main-color);
     font-size: 75px;
     text-align: center;
+    
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 }
 
 #servSub
@@ -529,6 +546,7 @@ nav
 
 #servDivOut
 {
+    background: var(--main-body-color);
     width: calc(100vw - ((100vw - 100%)));
     height: 100vw;
     margin: 0 auto;
@@ -541,6 +559,8 @@ nav
     height: 100%;
     padding: 0;
 /*    border: 1px solid red;*/
+    
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 #servRow
@@ -582,10 +602,12 @@ nav
     transition: all .2s ease-in-out;
 }
 
-#hair
+#hairClick, #tutorClick, #nailsClick, #salonClick, #shoesClick, #repairClick, #tailorClick, #producerClick, #trainerClick
 {
-    background-image: url(/assets/haircut.jpg);
+    padding: 0;
+    margin: 0 auto;
 }
+
 
 #servText
 {
@@ -594,6 +616,7 @@ nav
     margin: 0 auto;
     width: 100%;
     height: 100%;
+    padding: 0;
     padding-top: 40%;
     padding-bottom: 40%;
     opacity: 0;
@@ -617,6 +640,11 @@ nav
     filter:blur(4px);
     
     transition: all .2s ease-in-out;
+}
+
+#hair
+{
+    background-image: url(/assets/haircut.jpg);
 }
 
 #tutor
@@ -659,6 +687,58 @@ nav
     background-image: url(/assets/trainer.jpg);
 }
 
+
+
+
+
+#bottomTrans
+{
+    width: 100%;
+    margin-top: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+    background: linear-gradient(180deg, var(--main-body-color) 50%, var(--main-black-color) 50%);
+}
+
+#bottomCaptionDiv
+{
+    font-family: 'PanamaLight';
+    width: 100%;
+    height: 50px;
+    margin: 0 auto;
+    background: var(--main-white-color);
+    color: var(--main-color);
+    font-size: 35px;
+    text-align: center;
+    
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+#contactDiv
+{
+    background: var(--main-black-color);
+    width: 100%;
+    height: 155px;
+    padding: 20px;
+    text-align: center;
+}
+
+#contactMe
+{
+    color: var(--main-white-color);
+    font-size: 18px;
+    text-align: center;
+    
+    transition: all .2s ease-in-out;
+}
+
+
+#contactMe:hover
+{
+    color: var(--secondary-color);
+    
+    transition: all .2s ease-in-out;
+}
 
 /*fonts*/
 

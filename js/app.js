@@ -32,5 +32,9 @@ $(document).ready(function(){
         return false;
     });
     
+    $('#servText').on('click',function(e)
+    {
+        $('#splashDiv').remove();
+     });
 
  });
