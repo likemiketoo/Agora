@@ -609,7 +609,7 @@ nav
 }
 
 
-#servText
+#servTextHair, #servTextTutor, #servTextNails, #servTextSalon, #servTextShoes, #servTextRepair, #servTextTailor, #servTextProducer, #servTextTrainer
 {
     font-family: 'PanamaLight';
     position: relative;
@@ -628,13 +628,13 @@ nav
     color: #ffffff;
 }
 
-#servText:hover
+#servTextHair:hover, #servTextTutor:hover, #servTextNails:hover, #servTextSalon:hover, #servTextShoes:hover, #servTextRepair:hover, #servTextTailor:hover, #servTextProducer:hover, #servTextTrainer:hover
 {
     opacity: 1;
     transition: all .2s ease-in-out;
 }
 
-#servText:hover + #hair, #servText:hover + #tutor, #servText:hover + #nails, #servText:hover + #salon, #servText:hover + #shoes, #servText:hover + #repair, #servText:hover + #tailor, #servText:hover + #producer, #servText:hover + #trainer
+#servTextHair:hover + #hair, #servTextTutor:hover + #tutor, #servTextNails:hover + #nails, #servTextHover:hover + #salon, #servTextShoes:hover + #shoes, #servTextRepair:hover + #repair, #servTextTailor:hover + #tailor, #servTextProducer:hover + #producer, #servTextTrainer:hover + #trainer
 {
     transform: scale(1.1);
     filter:blur(4px);
