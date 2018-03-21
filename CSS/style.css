@@ -412,7 +412,8 @@ nav
     background: #000000;
     padding: 0;
     width: 100%;
-    height: 400px;
+    height: 300px;
+	padding-left: 10px;
 }
 
 #splashRow
@@ -515,21 +516,21 @@ nav
 #servTrans
 {
     width: 100%;
-    margin-bottom: 25px;
     padding-left: 100px;
     padding-right: 100px;
     background: linear-gradient(180deg, #5b5e63 50%, var(--main-body-color) 50%);
+    
 }
 
 #servLabelDiv
 {
     font-family: 'PanamaLight';
     width: 100%;
-    height: 150px;
+    height: 140px;
     margin: 0 auto;
     background: var(--main-white-color);
     color: var(--main-color);
-    font-size: 75px;
+    font-size: 65px;
     text-align: center;
     
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
@@ -634,7 +635,7 @@ nav
     transition: all .2s ease-in-out;
 }
 
-#servTextHair:hover + #hair, #servTextTutor:hover + #tutor, #servTextNails:hover + #nails, #servTextHover:hover + #salon, #servTextShoes:hover + #shoes, #servTextRepair:hover + #repair, #servTextTailor:hover + #tailor, #servTextProducer:hover + #producer, #servTextTrainer:hover + #trainer
+#servTextHair:hover + #hair, #servTextTutor:hover + #tutor, #servTextNails:hover + #nails, #servTextSalon:hover + #salon, #servTextShoes:hover + #shoes, #servTextRepair:hover + #repair, #servTextTailor:hover + #tailor, #servTextProducer:hover + #producer, #servTextTrainer:hover + #trainer
 {
     transform: scale(1.1);
     filter:blur(4px);
@@ -754,10 +755,75 @@ nav
     src: url('/fonts/Panama-Light.ttf');
 }
 
-@media (max-width: 780px)
+@media (max-width: 680px)
 {
-    #servDivOut
+    body
+	{
+		height: 1050px;
+	}
+	
+	#titleName
+	{
+		font-size: 18px;
+	}
+	
+	#loginBtn, #regBtn
+	{
+		font-size: 10px;
+	}
+	
+	#splashDiv
+	{
+		height: 250px;
+		padding-left: 10px;
+	}
+	
+	#learnMore
+	{
+		font-size: 18px
+	}
+	
+	#servDivOut
     {
         padding: 30px;
     }
+	
+	#splashText
+	{
+		font-size: 18px;
+	}
+	
+	#servTrans
+	{
+		padding-left: 50px;
+		padding-right: 50px;
+		height: 80px;
+	}
+	
+	#servLabelDiv
+	{
+		font-size: 35px;
+	}
+	
+	#servSub
+	{
+		font-size: 15px;
+	}
+	
+	#servTextHair, #servTextTutor, #servTextNails, #servTextSalon, #servTextShoes, #servTextRepair, #servTextTailor, #servTextProducer, #servTextTrainer
+	{
+
+		opacity: 1;
+		font-size: 18px;
+	}
+	
+	#bottomCaptionDiv
+	{
+		font-size: 30px;
+	}
+	
+	#contactDiv
+	{
+		height: 70px;
+	}
 }

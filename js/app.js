@@ -63,20 +63,24 @@ $(document).ready(function(){
         {
             $('#splashDiv').remove();
         });
+		
+		//slides up then hides div at normal speed
+        $('#servLabelDiv').empty();
+		//changes css
+        $('#servLabelDiv').css(
+            {
+                
+            });
+		//
+        $('#servLabelDiv').append('Entrepreneurs');
+        $('#servLabelDiv').append('<div class="container" id="servSub">Entrepreneurs offering service</div>');
+     });
      });
 
     //replace Label on click
     $('#servTextHair').on('click',function(e)
     {
-        //slides up then hides div at normal speed
-        $('#servLabelDiv').empty();
-        $('#servLabelDiv').css(
-            {
-                fontSize: 65
-            });
-        $('#servLabelDiv').append('Entrepreneurs');
-        $('#servLabelDiv').append('<div class="container" id="servSub">Entrepreneurs offering service</div>');
-     });
+        
     
 
  });
