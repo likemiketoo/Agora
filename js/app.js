@@ -75,12 +75,20 @@ $(document).ready(function(){
         $('#servLabelDiv').append('Entrepreneurs');
         $('#servLabelDiv').append('<div class="container" id="servSub">Entrepreneurs offering service</div>');
      });
-     });
 
     //replace Label on click
     $('#servTextHair').on('click',function(e)
     {
-        
-    
+    	$('#servDivInner').empty();
+		$('#servDivInner').append('<div class="row" id="servRow"> <div class="col-xs-4" id="servCol"> <a> <div class="container" id="barberEx1"> </div><div class="container" id="barberEx1Text">Bob The Barber </div></a> </div><div class="col-xs-4" id="servCol"> <a> <div class="container" id="barberEx2"> </div><div class="container" id="barberEx2Text">Big Bro\'s</div></a> </div><div class="col-xs-4" id="servCol"> <a> <div class="container" id="barberEx3"> </div><div class="container" id="barberEx3Text">Super Kutz </div></a> </div></div><div class="row" id="servRow"> <div class="col-xs-4" id="servCol"> <a> <div class="container" id="barberEx4"> </div><div class="container" id="barberEx4Text">John Cuttington </div></a> </div></div>');
+    });
+	
+	$('#barberEx3').on('click',function(e)
+    {
+		$('#servLabelDiv').empty();
+		$('#servLabelDiv').append('Super Kutz');
+		
+		$('#servDivInner2').empty();
+	});
 
  });
