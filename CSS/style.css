@@ -201,10 +201,9 @@ body.nav-expanded
     position: fixed;
     color: #000000;
     background-color: #ffffff;
-    height: 30px;
-    width: 60px;
+	background-size: cover;
     top: 10px;
-    right: 90px;
+    right: 85px;
     margin: 0 auto;
     padding: 0;
     border: 1px solid #ffffff;
@@ -227,7 +226,7 @@ body.nav-expanded
     transition: color 0.3s ease-in-out 0s, background-color 0.3s ease-in-out 0s;
 }
 
-#regBtn
+#regBtn, #signOut
 {
     
     position: fixed;
@@ -248,7 +247,9 @@ body.nav-expanded
     transition: color 0.3s ease-in-out 0s, background-color 0.3s ease-in-out 0s;
 }
 
-#regBtn:hover
+
+
+#regBtn:hover, #signOut:hover
 {
     color: #000000;
     background-color: #ffffff;
@@ -257,6 +258,11 @@ body.nav-expanded
     -moz-transition: color 0.3s ease-in-out 0s, background-color 0.3s ease-in-out 0s;
     -o-transition: color 0.3s ease-in-out 0s, background-color 0.3s ease-in-out 0s;
     transition: color 0.3s ease-in-out 0s, background-color 0.3s ease-in-out 0s;
+}
+
+#signOut
+{
+	visibility: hidden;
 }
 
 
@@ -531,7 +537,7 @@ nav
     margin: 0 auto;
     background: var(--main-white-color);
     color: var(--main-color);
-    font-size: 65px;
+    font-size: 55px;
     text-align: center;
     
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
@@ -847,7 +853,7 @@ nav
 		font-size: 18px;
 	}
 	
-	#loginBtn, #regBtn
+	#loginBtn, #regBtn, #signOut
 	{
 		font-size: 10px;
 	}

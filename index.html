@@ -29,6 +29,10 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
         
         <link rel="icon" href="/assets/AgoraClean.png">
+        
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        
+        <meta name="google-signin-client_id" content="991820545565-2um5ovcbn0jrm3p0ulfof2t3uep0o1le.apps.googleusercontent.com">
 
         <title>Agora</title>
     </head>
@@ -84,12 +88,14 @@
                         <div class="row" id="menuButtonBottom"></div>
                     </a>
                 </div>
-                <button class="btn btn-default" id="loginBtn">
-                    Login
-                </button>
-                <button class="btn btn-default" id="regBtn">
-                    Register
-                </button>
+                <div class="g-signin2" data-onsuccess="onSignIn" id="loginBtn"></div>
+				<button class="btn btn-default" id="regBtn">
+					Register
+				</button>
+               	<button class="btn btn-default" id="signOut" onclick="signOut();">
+					Sign Out
+				</button>
+                	
                 <div class="container" id="userIcon">
                     
                 </div>
@@ -242,6 +248,30 @@
             Contact Me
             </a>  
         </div>
+        
+        <script>
+			function onSignIn(googleUser)
+			{
+				var profile = googleUser.getBasicProfile();
+				console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+				console.log('Name: ' + profile.getName());
+				console.log('Image URL: ' + profile.getImageUrl());
+				console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+				jQuery('#signOut').css({"visibility": "visible"});
+			}
+
+			function signOut()
+			{
+				var auth2 = gapi.auth2.getAuthInstance();
+				auth2.signOut().then(function()
+				{
+					console.log('User signed out.');
+				});
+				jQuery('#signOut').css({"visibility": "hidden"});
+			 }
+
+		</script>
+        
     </body>
 </html>
 
