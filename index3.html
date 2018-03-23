@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+         <!--Bootstrap CSS-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        
+        <!-- Popper JS -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+        <!--Custom CSS-->
+        <link rel="stylesheet" href="CSS/style.css">
+
+        <!--Custom jQuery-->
+        <script src="js/app.js"></script>
+
+        <!--Fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Poiret+One|Comfortaa|Roboto:100,300" rel="stylesheet">
+
+        <!--Glyphicons-->
+        <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+        
+        <link rel="icon" href="/assets/AgoraClean.png">
+        
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        
+        <meta name="google-signin-client_id" content="991820545565-2um5ovcbn0jrm3p0ulfof2t3uep0o1le.apps.googleusercontent.com">
+
+        <title>Agora</title>
+    </head>
+    <body>
+        <div class="container">
+            <nav>
+                <ul class="list-unstyled main-menu" id="menu1">
+                    
+                    <li class="text-xs-left">
+                        <a href="#" id="nav-close">X</a>
+                    </li>
+                    <li>
+                        <a href="#menuOptionsDiv">Profile<span class="icon">
+                            <span class="glyphicon glyphicon-menu-right"></span>
+                        </span></a>
+                    </li>
+                    <li>
+                        <a href="#menuOptionsDiv">Add Your Service<span class="icon">
+                            <span class="glyphicon glyphicon-menu-right"></span>
+                        </span></a>
+                    </li>
+                    <li>
+                        <a href="#menuOptionsDiv">Help<span class="icon">
+                            <span class="glyphicon glyphicon-menu-right"></span>
+                        </span></a>
+                    </li>
+                    <li>
+                        <a href="#menuOptionsDiv">About<span class="icon">
+                            <span class="glyphicon glyphicon-menu-right"></span>
+                        </span></a>
+                    </li>
+                    <li>
+                        <a class="" href="#contactMeDiv">Suggestions<span class="icon">
+                            <span class="glyphicon glyphicon-menu-right"></span>
+                        </span></a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="navbar fixed-top">
+                <!--Branding-->
+                <div class="container-fluid" id="titleDiv">
+                    <a class="" href="index.html" id="titleName">
+                    A G O R A
+                        <div class="container-" id="titlePic">
+                            
+                        </div>
+                    </a>
+                </div>
+                <div class="navbar-header float-xs-right">
+                    <a id="nav-expander" class="nav-expander fixed">
+                        <div class="row" id="menuButtonTop"></div>
+                        <div class="row" id="menuButton"></div>
+                        <div class="row" id="menuButtonBottom"></div>
+                    </a>
+                </div>
+                <div class="g-signin2" data-onsuccess="onSignIn" id="loginBtn"></div>
+				<button class="btn btn-secondary" id="regBtn">
+					Register
+				</button>
+               	<button class="btn btn-secondary" id="signOut" onclick="signOut();">
+					Sign Out
+				</button>
+                <div class="container-fluid" id="userIcon">
+                    
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid" id="searchDiv">
+        	<div class="input-group mb-3">
+  				<input type="text" class="form-control" placeholder="I'm looking for..." aria-label="Recipient's username" aria-describedby="basic-addon2">
+  				<div class="input-group-append">
+    				<button class="btn btn-outline-secondary" type="button">
+    					<i class="fas fa-search"></i>
+    				</button>
+  				</div>
+			</div>
+        </div>
+        <div class="container-fluid" id="servTrans">
+            <div class="container-fluid" id="servLabelDiv">
+                #
+                <div class="container-" id="servSub">
+                    !
+                </div>
+            </div>
+        </div>
+        <div class="container-" id="servDivOut">
+            <div class="container-" id="servDivInner2">
+            	
+           	</div>
+        </div>
+        <div class="container-" id="bottomTrans">
+            <div class="container-" id="bottomCaptionDiv">
+                Contact
+            </div>
+        </div>
+        <div class="container-" id="contactDiv">
+            <a href="mailto:likemiketoo@gmail.com" id="contactMe">
+            Contact Me
+            </a>  
+        </div>
+        
+        <script>
+			function onSignIn(googleUser)
+			{
+				var profile = googleUser.getBasicProfile();
+				console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+				console.log('Name: ' + profile.getName());
+				console.log('Image URL: ' + profile.getImageUrl());
+				console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+				jQuery('#signOut').css({"visibility": "visible"});
+			}
+
+			function signOut()
+			{
+				var auth2 = gapi.auth2.getAuthInstance();
+				auth2.signOut().then(function()
+				{
+					console.log('User signed out.');
+				});
+				jQuery('#signOut').css({"visibility": "hidden"});
+			 }
+
+		</script>
+        
+    </body>
+</html>
+
+
+
+
+<!--The focus of this project is to enable entrepreneurs to distribute and raise awareness of their services and collect payment in a convenient manner through the mobile application. The app will allow for improved advertising of both goods and services on the campus of Norfolk State University where many talented entrepreneurs and students provide services. -->
+
+
+
+
+
+
+<!--
+<div class=row id=servRow><div class=col-xs-4 id=servCol><a><div class=- id=servTextHair>Barbers</div><div class=container id=hair></div></a></div><div class=col-xs-4 id=servCol><a><div class=container id=servTextTutor>Tutors</div><div class=container id=tutor></div></a></div><div class=col-xs-4 id=servCol><a href=#><div class=container id=servTextNails>Nail Techs</div><div class=container id=nails></div></a></div></div><div class=row id=servRow><div class=col-xs-4 id=servCol><a href=#><div class=container id=servTextShoes>Shoe Restoration</div><div class=container id=shoes></div></a></div><div class=col-xs-4 id=servCol><a href=#><div class=container id=servTextSalon>Salons</div><div class=container id=salon></div></a></div><div class=col-xs-4 id=servCol><a href=#><div class=container 
+-->
+               
+               
+               
+               
+           
+           
+<!--<div class="row" id="servRow"> <div class="col-xs-4" id="servCol"> <a> <div class="container" id="barberEx1"> </div><div class="container" id="barberEx1Text">Bob The Barber </div></a> </div><div class="col-xs-4" id="servCol"> <a> <div class="container" id="barberEx2"> </div><div class="container" id="barberEx2Text">Big Bro's </div></a> </div><div class="col-xs-4" id="servCol"> <a> <div class="container" id="barberEx3"> </div><div class="container" id="barberEx3Text">Super Kutz </div></a> </div></div><div class="row" id="servRow"> <div class="col-xs-4" id="servCol"> <a> <div class="container" id="barberEx4"> </div><div class="container" id="barberEx4Text">John Cuttington </div></a> </div></div>-->

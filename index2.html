@@ -6,14 +6,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
          <!--Bootstrap CSS-->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
         
 
         <!-- jQuery library -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
         <!-- Latest compiled JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        
+        <!-- Popper JS -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 
         <!--Custom CSS-->
         <link rel="stylesheet" href="CSS/style.css">
@@ -25,7 +28,7 @@
         <link href="https://fonts.googleapis.com/css?family=Poiret+One|Comfortaa|Roboto:100,300" rel="stylesheet">
 
         <!--Glyphicons-->
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
         
         <link rel="icon" href="/assets/AgoraClean.png">
         
@@ -40,7 +43,7 @@
             <nav>
                 <ul class="list-unstyled main-menu" id="menu1">
                     
-                    <li class="text-left">
+                    <li class="text-xs-left">
                         <a href="#" id="nav-close">X</a>
                     </li>
                     <li>
@@ -70,17 +73,17 @@
                     </li>
                 </ul>
             </nav>
-            <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar fixed-top">
                 <!--Branding-->
-                <div class="container" id="titleDiv">
+                <div class="container-fluid" id="titleDiv">
                     <a class="" href="index.html" id="titleName">
                     A G O R A
-                        <div class="container" id="titlePic">
+                        <div class="container-" id="titlePic">
                             
                         </div>
                     </a>
                 </div>
-                <div class="navbar-header pull-right">
+                <div class="navbar-header float-xs-right">
                     <a id="nav-expander" class="nav-expander fixed">
                         <div class="row" id="menuButtonTop"></div>
                         <div class="row" id="menuButton"></div>
@@ -88,63 +91,64 @@
                     </a>
                 </div>
                 <div class="g-signin2" data-onsuccess="onSignIn" id="loginBtn"></div>
-				<button class="btn btn-default" id="regBtn">
+				<button class="btn btn-secondary" id="regBtn">
 					Register
 				</button>
-               	<button class="btn btn-default" id="signOut" onclick="signOut();">
+               	<button class="btn btn-secondary" id="signOut" onclick="signOut();">
 					Sign Out
 				</button>
-                <div class="container" id="userIcon">
+                <div class="container-fluid" id="userIcon">
                     
                 </div>
             </div>
         </div>
-        <div class="container" id="searchDiv">
-             <div class="input-group input-group-lg">
-                 <input type="text" class="form-control" placeholder="I'm looking for...">    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button" id="srchBtn">
-                            <i class="glyphicon glyphicon-search"></i>
-                        </button>
-                    </span>
-                </div>
+        <div class="container-fluid" id="searchDiv">
+        	<div class="input-group mb-3">
+  				<input type="text" class="form-control" placeholder="I'm looking for..." aria-label="Recipient's username" aria-describedby="basic-addon2">
+  				<div class="input-group-append">
+    				<button class="btn btn-outline-secondary" type="button">
+    					<i class="fas fa-search"></i>
+    				</button>
+  				</div>
+			</div>
         </div>
-        <div class="container" id="servTrans">
-            <div class="container" id="servLabelDiv">
+        <div class="container-fluid" id="servTrans">
+            <div class="container-fluid" id="servLabelDiv">
                 Entrepreneurs
-                <div class="container" id="servSub">
+                <div class="container-fluid" id="servSub">
                     Entrepreneurs offering service
                 </div>
             </div>
         </div>
-        <div class="container" id="servDivOut">
-            <div class="container" id="servDivInner2">
+        <div class="container-fluid" id="servDivOut">
+            <div class="container-fluid" id="servDivInner2">
                 <div class="row" id="servRow">
-                    <div class="col-xs-4" id="servCol">
-                        <a>
-                            <div class="container" id="barberEx1">
+                    <div class="col-sm-4 mx-auto" id="servCol">
+                        <a href="index3.html">
+                            <div class="container-fluid" id="barberEx1">
                                 
                             </div>
-                            <div class="container" id="barberEx1Text">
+                            <div class="container-fluid" id="barberEx1Text">
 								Bob The Barber
                             </div>
                         </a>
                    </div>
-                   <div class="col-xs-4" id="servCol">
-                        <a>
-                            <div class="container" id="barberEx2">
+                   <div class="col-sm-4 mx-auto" id="servCol">
+                        <a href="index3.html">
+                            <div class="container-fluid" id="barberEx2">
                                 
                             </div>
-                            <div class="container" id="barberEx2Text">
+                            <div class="container-fluid" id="barberEx2Text">
 								Big Bro's
                             </div>
                         </a>
                    </div>
-                   <div class="col-xs-4" id="servCol">
-                        <a>
-                            <div class="container" id="barberEx3">
+                   <div class="col-sm-4 mx-auto" id="servCol">
+                        <a href="index3.html">
+                            <div class="container-fluid" id="barberEx3">
                                 
                             </div>
-                            <div class="container" id="barberEx3Text">
+                            <div class="container-fluid" id="barberEx3Text">
 								Super Kutz
                             </div>
                         </a>
@@ -152,12 +156,12 @@
                 </div>
                 
                 <div class="row" id="servRow">
-                    <div class="col-xs-4" id="servCol">
-                        <a>
-                            <div class="container" id="barberEx4">
+                    <div class="col-sm-4 mx-auto" id="servCol">
+                        <a href="index3.html">
+                            <div class="container-fluid" id="barberEx4">
                                 
                             </div>
-                            <div class="container" id="barberEx4Text">
+                            <div class="container-fluid" id="barberEx4Text">
 								John Cuttington
                             </div>
                         </a>
@@ -167,12 +171,12 @@
            	</div>
            	
         </div>
-        <div class="container" id="bottomTrans">
-            <div class="container" id="bottomCaptionDiv">
+        <div class="container-fluid" id="bottomTrans">
+            <div class="container-fluid" id="bottomCaptionDiv">
                 Contact
             </div>
         </div>
-        <div class="container" id="contactDiv">
+        <div class="container-fluid" id="contactDiv">
             <a href="mailto:likemiketoo@gmail.com" id="contactMe">
             Contact Me
             </a>  
