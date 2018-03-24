@@ -54,6 +54,15 @@ $(document).ready(function(){
         });
         
     });
+	
+	
+	
+	
+	
+	
+	
+	
+	
     
     //removes splash on click
 //    $('#servTextHair, #servTextTutor, #servTextNails, #servTextSalon, #servTextShoes, #servTextRepair, #servTextTailor, #servTextProducer, #servTextTrainer').on('click',function(e)

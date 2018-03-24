@@ -602,16 +602,23 @@ nav
 	height: 100%;
 }
 
-#servDivInner, #servDivInner2
+#servDivInner, #servDivInner2, #servDivInner3
 {
 	width: 100%;
-    padding: 0;
+	height: 100%;
+    padding: 5px;
 /*    border: 1px solid red;*/
 }
 
 #servDivInner
 {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+#servDivInner2
+{
+    background: var(--main-white-color);
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 
@@ -785,7 +792,7 @@ nav
 
 #barberEx1Text, #barberEx2Text, #barberEx3Text, #barberEx4Text
 {
-	background: var(--main-white-color);
+	background: #ffffff;
 	color: var(--main-black-color);
 	padding: 5%;
 	height: 25%;
