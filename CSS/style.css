@@ -588,7 +588,7 @@ nav
     text-align: center;
 }
 
-#servDivOut
+#servDivOut, #servDivOut2
 {
     background: var(--main-body-color);
     width: calc(100vw - ((100vw - 100%)));
@@ -597,10 +597,14 @@ nav
     padding: 70px;
 }
 
+#servDivOut2
+{
+	height: 100%;
+}
+
 #servDivInner, #servDivInner2
 {
 	width: 100%;
-    height: 100%;
     padding: 0;
 /*    border: 1px solid red;*/
 }
@@ -815,25 +819,53 @@ nav
 
 .carousel
 {
-	width: 100%;
-	height: 400px;
+	width: 500px;
+	height: 500px;
+	margin: 0 auto;
 	margin-bottom: 20px;
 }
 
 .w-100
 {
-	height: 400px;
 	background-image: url(/assets/agoraPlaceholder1.png);
 	background-size:contain;
 	background-position: center;
 	background-repeat: no-repeat;
+	width: 500px;
+	height: 500px;
+	margin: 0 auto;
+}
+
+
+
+#descrDiv, #dropDiv
+{
+	background: var(--main-white-color);
+	
+	max-width: 900px;
+	padding-top: 10px;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+#descrDiv
+{
+	height: 100px;
+}
+
+#dropDiv
+{
+	height: 225px;
+	border-radius: 10px;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 #exampleFormControlSelect1
 {
+	margin: 0 auto;
 	height: 50px;
+	width: 90%;
 	margin-top: 20px;
-	margin-bottom: 20px;
+	margin-bottom: 50px;
 }
 
 #contaDiv, #payDiv
@@ -862,7 +894,7 @@ nav
     background: linear-gradient(180deg, var(--main-body-color) 50%, var(--main-black-color) 50%);
 }
 
-#bottomCaptionDiv
+#bottomCaptionDiv, #serviceDiv
 {
     font-family: 'PanamaLight';
     width: 100%;
@@ -874,6 +906,13 @@ nav
     text-align: center;
     
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+#serviceDiv
+{
+	max-width: 300px;
+	margin-top: 30px;
+	margin-bottom: 30px;
 }
 
 #contactDiv
@@ -901,6 +940,11 @@ nav
     
     transition: all .2s ease-in-out;
 }
+
+
+
+
+
 
 /*fonts*/
 
