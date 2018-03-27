@@ -268,6 +268,11 @@ body.nav-expanded
     transition: color 0.3s ease-in-out 0s, background-color 0.3s ease-in-out 0s;
 }
 
+.abcRioButton
+{
+	width: 30px;
+}
+
 #signOut
 {
 	visibility: hidden;
@@ -498,7 +503,6 @@ nav
 {
     text-decoration: none;
     color: var(--main-white-color);
-    font-size: 25px;
     background: var(--secondary-color);
     border: none;
     
@@ -508,13 +512,19 @@ nav
     transition: color 0.2s ease-in-out, background 0.2s ease-in-out;
 }
 
-#searchDiv
+#searchDiv, #searchDiv2
 {
     background: var(--main-grey-color);
     padding-top: 35px;
     height: 120px;
     width: 100%;
 /*    border: 1px solid red;*/
+}
+
+#searchDiv2
+{
+	padding: 0px;
+	height: 35px;
 }
 
 .mb-3
@@ -565,7 +575,7 @@ nav
     
 }
 
-#servLabelDiv
+#servLabelDiv, #createDiv
 {
     font-family: 'PanamaLight';
     width: 100%;
@@ -588,7 +598,7 @@ nav
     text-align: center;
 }
 
-#servDivOut, #servDivOut2
+#servDivOut, #servDivOut2, #servDivOut3
 {
     background: var(--main-body-color);
     width: calc(100vw - ((100vw - 100%)));
@@ -610,16 +620,12 @@ nav
 /*    border: 1px solid red;*/
 }
 
-#servDivInner
+#servDivInner, #servDivInner2
 {
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-}
-
-#servDivInner2
-{
-    background: var(--main-white-color);
+    background: #282828;
 	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
+
 
 
 #servRow
@@ -757,6 +763,13 @@ nav
 
 
 
+#sectionLabel
+{
+	color: var(--main-white-color);
+}
+
+
+
 
 #barberEx1, #barberEx2, #barberEx3, #barberEx4
 {
@@ -826,8 +839,8 @@ nav
 
 .carousel
 {
-	width: 500px;
-	height: 500px;
+	max-width: 500px;
+	max-height: 500px;
 	margin: 0 auto;
 	margin-bottom: 20px;
 }
@@ -838,8 +851,8 @@ nav
 	background-size:contain;
 	background-position: center;
 	background-repeat: no-repeat;
-	width: 500px;
-	height: 500px;
+	max-width: 500px;
+	max-height: 500px;
 	margin: 0 auto;
 }
 
@@ -861,7 +874,8 @@ nav
 
 #dropDiv
 {
-	height: 225px;
+	max-height: 265px;
+	padding: 10px;
 	border-radius: 10px;
 	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
@@ -878,6 +892,8 @@ nav
 #contaDiv, #payDiv
 {
 	text-align: center;
+	margin: 5px;
+	
 }
 
 #cntctBtn, #payBtn
@@ -891,7 +907,7 @@ nav
 	border-color: #39d641;
 }
 
-
+/*  bottom contact section */
 #bottomTrans
 {
     width: 100%;
@@ -948,9 +964,24 @@ nav
     transition: all .2s ease-in-out;
 }
 
+/* new user section */
+.invalid-feedback
+{
+	color: #ffbb4f;
+}
 
+.form-group
+{
+	max-width: 900px;
+	margin: 0 auto;
+}
 
-
+#sbmtBtn
+{
+	margin: 0 auto;
+	margin-top: 15px;
+	text-align: center;
+}
 
 
 /*fonts*/
@@ -1000,6 +1031,22 @@ nav
         padding: 30px;
     }
 	
+	#servDivOut2
+    {
+        padding: 30px;
+    }
+	
+	#servDivOut3
+	{
+		padding: 30px;
+		height: 140vw;
+	}
+	
+	#servDivInner2
+	{
+		
+	}
+	
 	#splashText
 	{
 		font-size: 18px;
@@ -1012,7 +1059,7 @@ nav
 		height: 80px;
 	}
 	
-	#servLabelDiv
+	#servLabelDiv, #createDiv
 	{
 		font-size: 35px;
 	}
@@ -1037,5 +1084,18 @@ nav
 	#contactDiv
 	{
 		height: 70px;
+	}
+	
+	#barberEx1Text, #barberEx2Text, #barberEx3Text, #barberEx4Text
+	{
+		font-size: 12px;
+		padding: 0;
+		padding-top: 6px;
+		line-height: 11px;
+	}
+	
+	#barberEx1:hover + #barberEx1Text, #barberEx2:hover + #barberEx2Text, #barberEx3:hover + #barberEx3Text, #barberEx4:hover + #barberEx4Text
+	{
+		font-size: 85%;
 	}
 }

@@ -56,13 +56,88 @@ $(document).ready(function(){
     });
 	
 	
+	var config = 
+	{
+		apiKey: "AIzaSyBvOEX7dkyhpkCgQmKxVr5uGtnixKeL0aM",
+		authDomain: "agora-1521658563641.firebaseapp.com",
+		databaseURL: "https://agora-1521658563641.firebaseio.com",
+		projectId: "agora-1521658563641",
+		storageBucket: "agora-1521658563641.appspot.com",
+		messagingSenderId: "991820545565"
+	};
+
+	firebase.initializeApp(config);
+
+	var database = firebase.database();
+	
+	var ref = database.ref("/");
+	
+	function writeUserData(userId, name, username, email, imageUrl, description)
+	{
+		firebase.database().ref('users/' + userId).set(
+		{
+			name: name,
+			username: username,
+			email: email,
+			description: description,
+			profile_picture: imageUrl
+			
+  		});
+	}
+	
+//	var usersRef = ref.child("users");
+//	usersRef.set({
+//	  Bob: {
+//		username: "June 23, 1912",
+//		email: "Alan Turing"
+//	  },
+//	  gracehop: {
+//		username: "December 9, 1906",
+//		email: "Grace Hopper"
+//	  }
+//	});
+	
+	//grabs user info
+	$('#submitButton').click(function()
+    {
+		var usrsName = $("#nameInp").val();
+		console.log(usrsName);
+		var usrname = $("#usrNameInp").val();
+		console.log(usrname);
+		var usrEmail = $("#emailInp").val();
+		console.log(usrEmail);
+		var usrDescr = $("#descrInp").val();
+		console.log(usrDescr);
+		
+		var usersRef = ref.child("users");
+		usersRef.update({
+			[usrsName]: {
+			name: usrsName,
+			username: usrname,
+			email: usrEmail,
+			description: usrDescr
+			}
+		});
+	});
 	
 	
 	
 	
 	
+
+	//getElement
+	var preObject = document.getElementById('object');
+
+	var dbRefObject = firebase.database().ref().child('username');
+
+	//Sync object changes
+	dbRefObject.on('value', snap => console.log(snap.val()));
 	
+	dbRefObject.on('value', snap => {
+		servLabelDiv.innerText = JSON.stringify(snap.val())
+	});
 	
+
     
     //removes splash on click
 //    $('#servTextHair, #servTextTutor, #servTextNails, #servTextSalon, #servTextShoes, #servTextRepair, #servTextTailor, #servTextProducer, #servTextTrainer').on('click',function(e)
@@ -127,3 +202,30 @@ $(document).ready(function(){
 
  });
 
+function onSignIn(googleUser)
+{
+	var profile = googleUser.getBasicProfile();
+	console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+	console.log('Name: ' + profile.getName());
+	console.log('Image URL: ' + profile.getImageUrl());
+	console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+	jQuery('#signOut').css({"visibility": "visible"});
+}
+
+
+function signOut()
+{
+	var auth2 = gapi.auth2.getAuthInstance();
+	auth2.signOut().then(function()
+	{
+		console.log('User signed out.');
+	});
+	jQuery('#signOut').css({"visibility": "hidden"});
+ }
+
+
+
+
+//"rules": {
+//    ".read": "auth != null",
+//    ".write": "auth != null"
