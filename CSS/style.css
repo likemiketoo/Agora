@@ -771,7 +771,7 @@ nav
 
 
 
-#barberEx1, #barberEx2, #barberEx3, #barberEx4
+#barberEx1, #barberEx2, #barberEx3, #barberEx4, #barberEx5, #barberEx6, #barberEx7, #barberEx8, #barberEx9
 {
 	background-size: cover;
 	background-position: center;
@@ -803,7 +803,7 @@ nav
 	background-image: url(/assets/barberex4.png);
 }
 
-#barberEx1Text, #barberEx2Text, #barberEx3Text, #barberEx4Text
+#barberEx1Text, #barberEx2Text, #barberEx3Text, #barberEx4Text, #barberEx5Text, #barberEx6Text, #barberEx7Text, #barberEx8Text, #barberEx9Text
 {
 	background: #ffffff;
 	color: var(--main-black-color);
@@ -812,7 +812,7 @@ nav
 	width: 100%;
 	font-family: 'PanamaLight';
 	text-align: center;
-	font-size: 125%;
+	font-size: 100%;
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
 	
@@ -820,7 +820,7 @@ nav
 	
 }
 
-#barberEx1:hover, #barberEx2:hover, #barberEx3:hover, #barberEx4:hover
+#barberEx1:hover, #barberEx2:hover, #barberEx3:hover, #barberEx4:hover, #barberEx5:hover, #barberEx6:hover, #barberEx7:hover, #barberEx8:hover, #barberEx9:hover
 {
 	transform: scale(1.1);
 	
@@ -828,10 +828,10 @@ nav
 }
 
 
-#barberEx1:hover + #barberEx1Text, #barberEx2:hover + #barberEx2Text, #barberEx3:hover + #barberEx3Text, #barberEx4:hover + #barberEx4Text
+#barberEx1:hover + #barberEx1Text, #barberEx2:hover + #barberEx2Text, #barberEx3:hover + #barberEx3Text, #barberEx4:hover + #barberEx4Text, #barberEx5:hover + #barberEx5Text, #barberEx6:hover + #barberEx6Text, #barberEx7:hover + #barberEx7Text, #barberEx8:hover + #barberEx8Text, #barberEx9:hover + #barberEx9Text
 {
 	color: var(--main-color);
-	font-size: 140%;
+	font-size: 120%;
 	transition: all .2s ease-in-out;
 }
 
@@ -1050,6 +1050,8 @@ nav
 	#splashText
 	{
 		font-size: 18px;
+		line-height: 15px;
+		padding-top: 20px;
 	}
 	
 	#servTrans
@@ -1073,7 +1075,7 @@ nav
 	{
 
 		opacity: 1;
-		font-size: 18px;
+		font-size: 16px;
 	}
 	
 	#bottomCaptionDiv
@@ -1086,9 +1088,9 @@ nav
 		height: 70px;
 	}
 	
-	#barberEx1Text, #barberEx2Text, #barberEx3Text, #barberEx4Text
+	#barberEx1Text, #barberEx2Text, #barberEx3Text, #barberEx4Text, #barberEx5Text, #barberEx6Text, #barberEx7Text, #barberEx8Text
 	{
-		font-size: 12px;
+		font-size: 11px;
 		padding: 0;
 		padding-top: 6px;
 		line-height: 11px;

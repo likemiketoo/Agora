@@ -21,8 +21,6 @@
         <!--Custom CSS-->
         <link rel="stylesheet" href="CSS/style.css">
 
-        <!--Custom jQuery-->
-        <script src="js/app.js"></script>
 
         <!--Fonts-->
         <link href="https://fonts.googleapis.com/css?family=Poiret+One|Comfortaa|Roboto:100,300" rel="stylesheet">
@@ -129,7 +127,7 @@
                                 
                             </div>
                             <div class="container-fluid" id="barberEx1Text">
-								Bob The Barber
+								
                             </div>
                         </a>
                    </div>
@@ -162,7 +160,59 @@
                                 
                             </div>
                             <div class="container-fluid" id="barberEx4Text">
-								John Cuttington
+								
+                            </div>
+                        </a>
+                   </div>
+                   <div class="col-sm-4 mx-auto" id="servCol">
+                        <a href="index3.html">
+                            <div class="container-fluid" id="barberEx5">
+                                
+                            </div>
+                            <div class="container-fluid" id="barberEx5Text">
+								
+                            </div>
+                        </a>
+                   </div>
+                   <div class="col-sm-4 mx-auto" id="servCol">
+                        <a href="index3.html">
+                            <div class="container-fluid" id="barberEx6">
+                                
+                            </div>
+                            <div class="container-fluid" id="barberEx6Text">
+								
+                            </div>
+                        </a>
+                   </div>
+                </div>
+                <div class="row" id="servRow">
+                    <div class="col-sm-4 mx-auto" id="servCol">
+                        <a href="index3.html">
+                            <div class="container-fluid" id="barberEx7">
+                                
+                            </div>
+                            <div class="container-fluid" id="barberEx7Text">
+								
+                            </div>
+                        </a>
+                   </div>
+                   <div class="col-sm-4 mx-auto" id="servCol">
+                        <a href="index3.html">
+                            <div class="container-fluid" id="barberEx8">
+                                
+                            </div>
+                            <div class="container-fluid" id="barberEx8Text">
+								
+                            </div>
+                        </a>
+                   </div>
+                   <div class="col-sm-4 mx-auto" id="servCol">
+                        <a href="index3.html">
+                            <div class="container-fluid" id="barberEx9">
+                                
+                            </div>
+                            <div class="container-fluid" id="barberEx9Text">
+								
                             </div>
                         </a>
                    </div>
@@ -182,42 +232,19 @@
             </a>  
         </div>
         
-        <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
-		<script>
-		  // Initialize Firebase
-		  var config = {
-			apiKey: "AIzaSyBvOEX7dkyhpkCgQmKxVr5uGtnixKeL0aM",
-			authDomain: "agora-1521658563641.firebaseapp.com",
-			databaseURL: "https://agora-1521658563641.firebaseio.com",
-			projectId: "agora-1521658563641",
-			storageBucket: "",
-			messagingSenderId: "991820545565"
-		  };
-		  firebase.initializeApp(config);
-		</script>
+         <pre id="object">
+        	
+        </pre>
         
-        <script>
-			function onSignIn(googleUser)
-			{
-				var profile = googleUser.getBasicProfile();
-				console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-				console.log('Name: ' + profile.getName());
-				console.log('Image URL: ' + profile.getImageUrl());
-				console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-				jQuery('#signOut').css({"visibility": "visible"});
-			}
-
-			function signOut()
-			{
-				var auth2 = gapi.auth2.getAuthInstance();
-				auth2.signOut().then(function()
-				{
-					console.log('User signed out.');
-				});
-				jQuery('#signOut').css({"visibility": "hidden"});
-			 }
-
-		</script>
+        <!-- firebase -->
+        <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+        
+        <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-app.js"></script>
+        
+        <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-database.js"></script>
+     
+        <!--Custom jQuery-->
+        <script src="js/app.js"></script>
         
     </body>
 </html>

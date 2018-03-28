@@ -26,8 +26,6 @@
         <!--Custom CSS-->
         <link rel="stylesheet" href="CSS/style.css">
 
-        <!--Custom jQuery-->
-        <script src="js/app.js"></script>
 
         <!--Fonts-->
         <link href="https://fonts.googleapis.com/css?family=Poiret+One|Comfortaa|Roboto:100,300" rel="stylesheet">
@@ -254,43 +252,19 @@
             </a>  
         </div>
         
+        <pre id="object">
+        	
+        </pre>
+        
+        <!-- firebase -->
         <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
-		<script>
-		  // Initialize Firebase
-		  var config = {
-			apiKey: "AIzaSyBvOEX7dkyhpkCgQmKxVr5uGtnixKeL0aM",
-			authDomain: "agora-1521658563641.firebaseapp.com",
-			databaseURL: "https://agora-1521658563641.firebaseio.com",
-			projectId: "agora-1521658563641",
-			storageBucket: "",
-			messagingSenderId: "991820545565"
-		  };
-		  firebase.initializeApp(config);
-		</script>
         
+        <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-app.js"></script>
         
-        <script>
-			function onSignIn(googleUser)
-			{
-				var profile = googleUser.getBasicProfile();
-				console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-				console.log('Name: ' + profile.getName());
-				console.log('Image URL: ' + profile.getImageUrl());
-				console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-				jQuery('#signOut').css({"visibility": "visible"});
-			}
-
-			function signOut()
-			{
-				var auth2 = gapi.auth2.getAuthInstance();
-				auth2.signOut().then(function()
-				{
-					console.log('User signed out.');
-				});
-				jQuery('#signOut').css({"visibility": "hidden"});
-			 }
-
-		</script>
+        <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-database.js"></script>
+     
+        <!--Custom jQuery-->
+        <script src="js/app.js"></script>
         
     </body>
 </html>

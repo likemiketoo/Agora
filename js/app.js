@@ -56,6 +56,7 @@ $(document).ready(function(){
     });
 	
 	
+	
 	var config = 
 	{
 		apiKey: "AIzaSyBvOEX7dkyhpkCgQmKxVr5uGtnixKeL0aM",
@@ -72,6 +73,79 @@ $(document).ready(function(){
 	
 	var ref = database.ref("/");
 	
+	var dbRefObject = firebase.database().ref().child('users');
+	
+	
+	
+	var usrnm = "Mark";
+	
+	var unames = firebase.database().ref('users/' + usrnm + '/username');
+	
+	
+//	Sync object changes
+	unames.on('value', snap => console.log(snap.val()));
+	
+	
+	
+	var barberString = 'barberEx';
+	var temp = 0;
+	
+	dbRefObject.on('child_added', function(snapshot, prevChildKey)
+	{
+		var newPost = snapshot.val();
+		console.log("Username: " + newPost.username);
+		
+		temp = temp +1;
+		var tempString = temp.toString();
+		var newString = barberString + tempString + 'Text';
+		
+		console.log(newString);		
+		
+		document.getElementById(newString).innerText = JSON.stringify(newPost.username);
+		
+	});
+	
+	
+	dbRefObject.on('child_removed', function(snapshot, prevChildKey)
+	{
+		var newPost = snapshot.val();
+		console.log("Username: " + newPost.username);
+		
+		temp = temp +1;
+		var tempString = temp.toString();
+		var newString = barberString + tempString + 'Text';
+		
+		console.log(newString);		
+		
+		document.getElementById(newString).innerText = JSON.stringify(newPost.username);
+		
+	});
+	
+	
+	
+	
+	
+//	unames.on('value', snap => {
+//		barberEx1Text.innerText = JSON.stringify(snap.val())
+//	});
+	
+
+
+	//Sync object changes
+	//	dbRefObject.on('child_added', snap => console.log(snap.val()));
+	
+//	ref.on("value", function(snapshot)
+//	{
+// 		snapshot.forEach(function(messageSnapshot)
+//		{
+//    		console.log(messageSnapshot.val());
+//  		});
+//	});
+//	
+	
+	
+	
+	
 	function writeUserData(userId, name, username, email, imageUrl, description)
 	{
 		firebase.database().ref('users/' + userId).set(
@@ -84,6 +158,9 @@ $(document).ready(function(){
 			
   		});
 	}
+	
+
+	
 	
 //	var usersRef = ref.child("users");
 //	usersRef.set({
@@ -101,26 +178,27 @@ $(document).ready(function(){
 	$('#submitButton').click(function()
     {
 		var usrsName = $("#nameInp").val();
-		console.log(usrsName);
+		//console.log(usrsName);
 		var usrname = $("#usrNameInp").val();
-		console.log(usrname);
+		//console.log(usrname);
 		var usrEmail = $("#emailInp").val();
-		console.log(usrEmail);
+		//console.log(usrEmail);
 		var usrDescr = $("#descrInp").val();
-		console.log(usrDescr);
+		//console.log(usrDescr);
+		var usrImg = $("#imgInp").val();
+		//console.log(usrImg);
 		
 		var usersRef = ref.child("users");
 		usersRef.update({
-			[usrsName]: {
+			[usrname]: {
 			name: usrsName,
 			username: usrname,
 			email: usrEmail,
 			description: usrDescr
 			}
 		});
+//		email: profile.getEmail()
 	});
-	
-	
 	
 	
 	
@@ -128,14 +206,18 @@ $(document).ready(function(){
 	//getElement
 	var preObject = document.getElementById('object');
 
-	var dbRefObject = firebase.database().ref().child('username');
-
-	//Sync object changes
-	dbRefObject.on('value', snap => console.log(snap.val()));
 	
-	dbRefObject.on('value', snap => {
-		servLabelDiv.innerText = JSON.stringify(snap.val())
-	});
+	
+//	dbRefObject.on('value', snap => {
+//		servLabelDiv.innerText = JSON.stringify(snap.val())
+//	});
+	
+//	dbRefObject.on('value', snap => console.log(snap.val()))
+//	 
+//	dbRefObject.on('value', snap => {
+//		barberEx1Text.innerText = JSON.stringify(snap.val())
+//	});
+	
 	
 
     
