@@ -1,5 +1,45 @@
-$(document).ready(function(){												
+//var usrMail;
+
+function onSignIn(googleUser)
+{
+	var profile = googleUser.getBasicProfile();
+	console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+	console.log('Name: ' + profile.getName());
+	console.log('Image URL: ' + profile.getImageUrl());
+	console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+	jQuery('#signOut').css({"visibility": "visible"});
+	
+	//pass email to main function
+	var usrMail = profile.getEmail();
+	var usrNm = profile.getName();
+	
+	localStorage.setItem("usrMail", usrMail);
+	localStorage.setItem("usrNm", usrNm);
+	
+	usrMail = localStorage.getItem("usrMail");
+	usrNm = localStorage.getItem("usrNm");
+	//console.log("Inital " + usrMail);
+}
+
+
+function signOut()
+{
+	var auth2 = gapi.auth2.getAuthInstance();
+	auth2.signOut().then(function()
+	{
+		console.log('User signed out.');
+	});
+	jQuery('#signOut').css({"visibility": "hidden"});
+ }
+
+
+$(document).ready(function (){							
+	var usrMail = localStorage.getItem("usrMail");
+	var usrNm = localStorage.getItem("usrNm");
+	
    //Navigation Menu Slider
+	//console.log("WORKING " + usrml);
+	
     $('#nav-expander').on('click',function(e)
     {
         e.preventDefault();
@@ -12,26 +52,8 @@ $(document).ready(function(){
         e.preventDefault();
         $('body').removeClass('nav-expanded');
     });
-//    
-//    $('.container-fluid').on('click',function(e)
-//    {
-//        e.preventDefault();
-//        $('body').removeClass('nav-expanded');
-//    });
-//    
-    
-    
-    
-    var $root = $('html, body');
-    
-//    $('a').click(function()
-//    {
-//        $root.animate({
-//            scrollTop: $( $.attr(this, 'href') ).offset().top
-//        }, 900);
-//        return false;
-//    });
-    
+
+    //Updates Learn More div on click
     $('#learnMore').click(function()
     {
         //slides up and away
@@ -56,7 +78,6 @@ $(document).ready(function(){
     });
 	
 	
-	
 	var config = 
 	{
 		apiKey: "AIzaSyBvOEX7dkyhpkCgQmKxVr5uGtnixKeL0aM",
@@ -69,87 +90,186 @@ $(document).ready(function(){
 
 	firebase.initializeApp(config);
 
+	
 	var database = firebase.database();
 	
 	var ref = database.ref("/");
-	
-	var dbRefObject = firebase.database().ref().child('users');
-	
-	
-	
-	var usrnm = "Mark";
-	
-	var unames = firebase.database().ref('users/' + usrnm + '/username');
-	
-	
-//	Sync object changes
-	unames.on('value', snap => console.log(snap.val()));
+	var dbRefObject = ref.child('users');
+	var Barbers = ref.child('Barbers');
+	var barberUsers = Barbers.child('users');
 	
 	
 	
-	var barberString = 'barberEx';
-	var temp = 0;
-	
-	dbRefObject.on('child_added', function(snapshot, prevChildKey)
-	{
-		var newPost = snapshot.val();
-		console.log("Username: " + newPost.username);
-		
-		temp = temp +1;
-		var tempString = temp.toString();
-		var newString = barberString + tempString + 'Text';
-		
-		console.log(newString);		
-		
-		document.getElementById(newString).innerText = JSON.stringify(newPost.username);
-		
-	});
-	
-	
-	dbRefObject.on('child_removed', function(snapshot, prevChildKey)
-	{
-		var newPost = snapshot.val();
-		console.log("Username: " + newPost.username);
-		
-		temp = temp +1;
-		var tempString = temp.toString();
-		var newString = barberString + tempString + 'Text';
-		
-		console.log(newString);		
-		
-		document.getElementById(newString).innerText = JSON.stringify(newPost.username);
-		
-	});
-	
-	
-	
-	
-	
-//	unames.on('value', snap => {
-//		barberEx1Text.innerText = JSON.stringify(snap.val())
-//	});
-	
-
-
 	//Sync object changes
-	//	dbRefObject.on('child_added', snap => console.log(snap.val()));
-	
-//	ref.on("value", function(snapshot)
-//	{
-// 		snapshot.forEach(function(messageSnapshot)
-//		{
-//    		console.log(messageSnapshot.val());
-//  		});
-//	});
-//	
-	
-	
-	
-	
-	function writeUserData(userId, name, username, email, imageUrl, description)
+	//unames.on('value', snap => console.log(snap.val()));
+	function validate(googleUser)
 	{
-		firebase.database().ref('users/' + userId).set(
+		var profile = googleUser.getBasicProfile();
+		console.log('Da Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+	};
+	
+	
+	var temp = 0;
+	var current = localStorage.getItem("current");
+	
+	//*********************//
+	//Changes selected category
+	//*********************//
+	$('#servTextBarber').click(function()
+    {
+		console.log("Barber Selected");
+		//ref.update({
+		//})
+		current = 'Barbers';
+		localStorage.setItem("current", current);
+		current = localStorage.getItem("current");
+		//console.log(current);
+		
+	});
+	
+	$('#servTextTutor').click(function()
+    {
+		console.log("Tutor Selected");
+		//ref.update({
+		//})
+		current = 'Tutors';
+		localStorage.setItem("current", current);
+		current = localStorage.getItem("current");
+		//console.log(current);
+		
+	});
+	
+	$('#servTextNails').click(function()
+    {
+		console.log("Nails Selected");
+		//ref.update({
+		//})
+		current = 'Nail Techs';
+		localStorage.setItem("current", current);
+		current = localStorage.getItem("current");
+		//console.log(current);
+		
+	});
+	
+	$('#servTextShoes').click(function()
+    {
+		console.log("Shoes Selected");
+		//ref.update({
+		//})
+		current = 'Shoe Restoration';
+		localStorage.setItem("current", current);
+		current = localStorage.getItem("current");
+		//console.log(current);
+		
+	});
+	
+	$('#servTextBeauty').click(function()
+    {
+		console.log("Beauty Selected");
+		//ref.update({
+		//})
+		current = 'Beauty';
+		localStorage.setItem("current", current);
+		current = localStorage.getItem("current");
+		//console.log(current);
+		
+	});
+	
+	$('#servTextRepair').click(function()
+    {
+		console.log("Repair Selected");
+		//ref.update({
+		//})
+		current = 'Repair';
+		localStorage.setItem("current", current);
+		current = localStorage.getItem("current");
+		//console.log(current);
+		
+	});
+	
+	$('#servTextTailor').click(function()
+    {
+		console.log("Tailor Selected");
+		//ref.update({
+		//})
+		current = 'Tailor';
+		localStorage.setItem("current", current);
+		current = localStorage.getItem("current");
+		//console.log(current);
+		
+	});
+	
+	$('#servTextProducer').click(function()
+    {
+		console.log("Producer Selected");
+		//ref.update({
+		//})
+		current = 'Producers';
+		localStorage.setItem("current", current);
+		current = localStorage.getItem("current");
+		//console.log(current);
+		
+	});
+	
+	$('#servTextTrainer').click(function()
+    {
+		console.log("Trainer Selected");
+		//ref.update({
+		//})
+		current = 'Trainers';
+		localStorage.setItem("current", current);
+		current = localStorage.getItem("current");
+		//console.log(current);
+		
+	});
+	
+	localStorage.setItem("current", current);
+	current = localStorage.getItem("current");
+	console.log(current);
+	
+
+	//Dynamically updates div according to database
+	ref.child(current).child('users').on('child_added', function(snapshot, prevChildKey)
+	{
+		var newPost = snapshot.val();
+		console.log("Username: " + newPost.username);
+
+		temp = temp +1;
+		var tempString = temp.toString();
+		var newString = "entre" + tempString + 'Text';
+
+		console.log(newString);		
+
+		document.getElementById(newString).innerText = JSON.stringify(newPost.username);
+
+	});
+
+	barberUsers.on('child_removed', function(snapshot, prevChildKey)
+	{
+		var newPost = snapshot.val();
+		console.log("Username: " + newPost.username);
+
+		temp = temp +1;
+		var tempString = temp.toString();
+		var newString = "entre" + tempString + 'Text';
+
+		console.log(newString);		
+
+		document.getElementById(newString).innerText = JSON.stringify(newPost.username);
+
+	});
+	
+	//Updates email input with user's current email
+	document.getElementById('emailInp').value = usrMail;
+	document.getElementById('nameInp').value = usrNm;
+
+	
+	
+	function writeUserData(userId, name, username, email, imageUrl, description, category)
+	{
+		database.ref('users/').set(
 		{
+			category: category,
 			name: name,
 			username: username,
 			email: email,
@@ -159,24 +279,11 @@ $(document).ready(function(){
   		});
 	}
 	
-
-	
-	
-//	var usersRef = ref.child("users");
-//	usersRef.set({
-//	  Bob: {
-//		username: "June 23, 1912",
-//		email: "Alan Turing"
-//	  },
-//	  gracehop: {
-//		username: "December 9, 1906",
-//		email: "Grace Hopper"
-//	  }
-//	});
-	
 	//grabs user info
 	$('#submitButton').click(function()
     {
+		var categ = $("#FormControlSelect1").val();
+		console.log(categ);
 		var usrsName = $("#nameInp").val();
 		//console.log(usrsName);
 		var usrname = $("#usrNameInp").val();
@@ -188,7 +295,7 @@ $(document).ready(function(){
 		var usrImg = $("#imgInp").val();
 		//console.log(usrImg);
 		
-		var usersRef = ref.child("users");
+		var usersRef = ref.child(categ).child('users');
 		usersRef.update({
 			[usrname]: {
 			name: usrsName,
@@ -201,112 +308,42 @@ $(document).ready(function(){
 	});
 	
 	
-	
-
-	//getElement
-	var preObject = document.getElementById('object');
-
-	
-	
-//	dbRefObject.on('value', snap => {
-//		servLabelDiv.innerText = JSON.stringify(snap.val())
+	//	var usersRef = ref.child("users");
+//	usersRef.set({
+//	  Bob: {
+//		username: "June 23, 1912",
+//		email: "Alan Turing"
+//	  },
+//	  gracehop: {
+//		username: "December 9, 1906",
+//		email: "Grace Hopper"
+//	  }
 //	});
 	
-//	dbRefObject.on('value', snap => console.log(snap.val()))
-//	 
-//	dbRefObject.on('value', snap => {
-//		barberEx1Text.innerText = JSON.stringify(snap.val())
-//	});
-	
-	
 
-    
-    //removes splash on click
-//    $('#servTextHair, #servTextTutor, #servTextNails, #servTextSalon, #servTextShoes, #servTextRepair, #servTextTailor, #servTextProducer, #servTextTrainer').on('click',function(e)
+
+});
+
+
+
+
+
+//    
+//    $('.container-fluid').on('click',function(e)
 //    {
-//        //slides up then hides div at normal speed
-//        $('#splashDiv').slideUp('normal', function()
-//        {
-//            $('#splashDiv').remove();
-//        });
-//		
-//		//slides up then hides div at normal speed
-//        $('#servLabelDiv').empty();
-//		//changes css
-//        $('#servLabelDiv').css(
-//            {
-//                
-//            });
-//		//
-//        $('#servLabelDiv').append('Entrepreneurs');
-//        $('#servLabelDiv').append('<div class="container" id="servSub">Entrepreneurs offering service</div>');
-//     });
-//
-//    //replace Label on click
-//    $('#servTextHair').on('click',function(e)
-//    {
-//    	$('#servDivInner').empty();
-//		$('#servDivInner').append('<div class="row" id="servRow"> <div class="col-xs-4" id="servCol"> <a> <div class="container" id="barberEx1"> </div><div class="container" id="barberEx1Text">Bob The Barber </div></a> </div><div class="col-xs-4" id="servCol"> <a> <div class="container" id="barberEx2"> </div><div class="container" id="barberEx2Text">Big Bro\'s</div></a> </div><div class="col-xs-4" id="servCol"> <a> <div class="container" id="barberEx3"> </div><div class="container" id="barberEx3Text">Super Kutz </div></a> </div></div><div class="row" id="servRow"> <div class="col-xs-4" id="servCol"> <a> <div class="container" id="barberEx4"> </div><div class="container" id="barberEx4Text">John Cuttington </div></a> </div></div>');
+//        e.preventDefault();
+//        $('body').removeClass('nav-expanded');
 //    });
-//	
-//	$('#barberEx1').on('click',function(e)
+//    
+    
+//var $root = $('html, body');
+//    $('a').click(function()
 //    {
-//		$('#servLabelDiv').empty();
-//		$('#servLabelDiv').append('Bob The Barber');
-//		
-//		$('#servDivInner2').empty();
-//	});
-//	
-//	$('#barberEx2').on('click',function(e)
-//    {
-//		$('#servLabelDiv').empty();
-//		$('#servLabelDiv').append('Big Bro\'s');
-//		
-//		$('#servDivInner2').empty();
-//	});
-//	
-//	
-//	$('#barberEx3').on('click',function(e)
-//    {
-//		$('#servLabelDiv').empty();
-//		$('#servLabelDiv').append('Super Kutz');
-//		
-//		$('#servDivInner2').empty();
-//	});
-//	
-//	$('#barberEx4').on('click',function(e)
-//    {
-//		$('#servLabelDiv').empty();
-//		$('#servLabelDiv').append('John Cuttington');
-//		
-//		$('#servDivInner2').empty();
-//	});
-
- });
-
-function onSignIn(googleUser)
-{
-	var profile = googleUser.getBasicProfile();
-	console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-	console.log('Name: ' + profile.getName());
-	console.log('Image URL: ' + profile.getImageUrl());
-	console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-	jQuery('#signOut').css({"visibility": "visible"});
-}
-
-
-function signOut()
-{
-	var auth2 = gapi.auth2.getAuthInstance();
-	auth2.signOut().then(function()
-	{
-		console.log('User signed out.');
-	});
-	jQuery('#signOut').css({"visibility": "hidden"});
- }
-
-
-
+//        $root.animate({
+//            scrollTop: $( $.attr(this, 'href') ).offset().top
+//        }, 900);
+//        return false;
+//    });
 
 //"rules": {
 //    ".read": "auth != null",

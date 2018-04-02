@@ -268,10 +268,7 @@ body.nav-expanded
     transition: color 0.3s ease-in-out 0s, background-color 0.3s ease-in-out 0s;
 }
 
-.abcRioButton
-{
-	width: 30px;
-}
+
 
 #signOut
 {
@@ -654,7 +651,7 @@ nav
 	transition: all .2s ease-in-out;
 }
 
-#hair, #tutor, #nails, #salon, #shoes, #repair, #tailor, #producer, #trainer
+#barber, #tutor, #nails, #beauty, #shoes, #repair, #tailor, #producer, #trainer
 {
     width: 100%;
     height: 100%;
@@ -668,7 +665,7 @@ nav
     transition: all .2s ease-in-out;
 }
 
-#hair:hover, #tutor:hover, #nails:hover, #salon:hover, #shoes:hover, #repair:hover, #tailor:hover, #producer:hover, #trainer:hover
+#barber:hover, #tutor:hover, #nails:hover, #beauty:hover, #shoes:hover, #repair:hover, #tailor:hover, #producer:hover, #trainer:hover
 {
     transform: scale(1.1);
     filter:blur(4px);
@@ -676,14 +673,8 @@ nav
     transition: all .2s ease-in-out;
 }
 
-#hairClick, #tutorClick, #nailsClick, #salonClick, #shoesClick, #repairClick, #tailorClick, #producerClick, #trainerClick
-{
-    padding: 0;
-    margin: 0 auto;
-}
 
-
-#servTextHair, #servTextTutor, #servTextNails, #servTextSalon, #servTextShoes, #servTextRepair, #servTextTailor, #servTextProducer, #servTextTrainer
+#servTextBarber, #servTextTutor, #servTextNails, #servTextBeauty, #servTextShoes, #servTextRepair, #servTextTailor, #servTextProducer, #servTextTrainer
 {
     font-family: 'PanamaLight';
     position: relative;
@@ -702,13 +693,13 @@ nav
     color: #ffffff;
 }
 
-#servTextHair:hover, #servTextTutor:hover, #servTextNails:hover, #servTextSalon:hover, #servTextShoes:hover, #servTextRepair:hover, #servTextTailor:hover, #servTextProducer:hover, #servTextTrainer:hover
+#servTextBarber:hover, #servTextTutor:hover, #servTextNails:hover, #servTextBeauty:hover, #servTextShoes:hover, #servTextRepair:hover, #servTextTailor:hover, #servTextProducer:hover, #servTextTrainer:hover
 {
     opacity: 1;
     transition: all .2s ease-in-out;
 }
 
-#servTextHair:hover + #hair, #servTextTutor:hover + #tutor, #servTextNails:hover + #nails, #servTextSalon:hover + #salon, #servTextShoes:hover + #shoes, #servTextRepair:hover + #repair, #servTextTailor:hover + #tailor, #servTextProducer:hover + #producer, #servTextTrainer:hover + #trainer
+#servTextBarber:hover + #barber, #servTextTutor:hover + #tutor, #servTextNails:hover + #nails, #servTextBeauty:hover + #beauty, #servTextShoes:hover + #shoes, #servTextRepair:hover + #repair, #servTextTailor:hover + #tailor, #servTextProducer:hover + #producer, #servTextTrainer:hover + #trainer
 {
     transform: scale(1.1);
     filter: blur(4px);
@@ -716,7 +707,7 @@ nav
     transition: all .2s ease-in-out;
 }
 
-#hair
+#barber
 {
     background-image: url(/assets/haircut.jpg);
 }
@@ -731,7 +722,7 @@ nav
     background-image: url(/assets/nails.jpg);
 }
 
-#salon
+#beauty
 {
     background-image: url(/assets/salon.png);
 }
@@ -771,7 +762,7 @@ nav
 
 
 
-#barberEx1, #barberEx2, #barberEx3, #barberEx4, #barberEx5, #barberEx6, #barberEx7, #barberEx8, #barberEx9
+#entre1, #entre2, #entre3, #entre4, #entre5, #entre6, #entre7, #entre8, #entre9
 {
 	background-size: cover;
 	background-position: center;
@@ -783,27 +774,27 @@ nav
 	transition: all .2s ease-in-out;
 }
 
-#barberEx1
+#entre1
 {
 	background-image: url(/assets/barberex1.png);
 }
 
-#barberEx2
+#entre2
 {
 	background-image: url(/assets/barberex2.png);
 }
 
-#barberEx3
+#entre3
 {
 	background-image: url(/assets/barberex3.png);
 }
 
-#barberEx4
+#entre4
 {
 	background-image: url(/assets/barberex4.png);
 }
 
-#barberEx1Text, #barberEx2Text, #barberEx3Text, #barberEx4Text, #barberEx5Text, #barberEx6Text, #barberEx7Text, #barberEx8Text, #barberEx9Text
+#entre1Text, #entre2Text, #entre3Text, #entre4Text, #entre5Text, #entre6Text, #entre7Text, #entre8Text, #entre9Text
 {
 	background: #ffffff;
 	color: var(--main-black-color);
@@ -820,7 +811,7 @@ nav
 	
 }
 
-#barberEx1:hover, #barberEx2:hover, #barberEx3:hover, #barberEx4:hover, #barberEx5:hover, #barberEx6:hover, #barberEx7:hover, #barberEx8:hover, #barberEx9:hover
+#entre1:hover, #entre2:hover, #entre3:hover, #entre4:hover, #entre5:hover, #entre6:hover, #entre7:hover, #entre8:hover, #entre9:hover
 {
 	transform: scale(1.1);
 	
@@ -828,7 +819,7 @@ nav
 }
 
 
-#barberEx1:hover + #barberEx1Text, #barberEx2:hover + #barberEx2Text, #barberEx3:hover + #barberEx3Text, #barberEx4:hover + #barberEx4Text, #barberEx5:hover + #barberEx5Text, #barberEx6:hover + #barberEx6Text, #barberEx7:hover + #barberEx7Text, #barberEx8:hover + #barberEx8Text, #barberEx9:hover + #barberEx9Text
+#entre1:hover + #entre1Text, #entre2:hover + #entre2Text, #entre3:hover + #bentreText, #entre4:hover + #entre4Text, #entre5:hover + #entre5Text, #entre6:hover + #entre6Text, #entre7:hover + #entre7Text, #entre8:hover + #entre8Text, #entre9:hover + #entre9Text
 {
 	color: var(--main-color);
 	font-size: 120%;
@@ -976,6 +967,11 @@ nav
 	margin: 0 auto;
 }
 
+#fileSelect
+{
+	color: var(--main-white-color);
+}
+
 #sbmtBtn
 {
 	margin: 0 auto;
@@ -1071,7 +1067,7 @@ nav
 		font-size: 15px;
 	}
 	
-	#servTextHair, #servTextTutor, #servTextNails, #servTextSalon, #servTextShoes, #servTextRepair, #servTextTailor, #servTextProducer, #servTextTrainer
+	#servTextBarber, #servTextTutor, #servTextNails, #servTextBeauty, #servTextShoes, #servTextRepair, #servTextTailor, #servTextProducer, #servTextTrainer
 	{
 
 		opacity: 1;
@@ -1088,7 +1084,7 @@ nav
 		height: 70px;
 	}
 	
-	#barberEx1Text, #barberEx2Text, #barberEx3Text, #barberEx4Text, #barberEx5Text, #barberEx6Text, #barberEx7Text, #barberEx8Text
+	#entre1Text, #entre2Text, #entre3Text, #entre4Text, #entre5Text, #entre6Text, #entre7Text, #entre8Text
 	{
 		font-size: 11px;
 		padding: 0;
@@ -1096,7 +1092,7 @@ nav
 		line-height: 11px;
 	}
 	
-	#barberEx1:hover + #barberEx1Text, #barberEx2:hover + #barberEx2Text, #barberEx3:hover + #barberEx3Text, #barberEx4:hover + #barberEx4Text
+	#entre1:hover + #entre1Text, #entre2:hover + #entre2Text, #entre3:hover + #entre3Text, #entre4:hover + #entre4Text
 	{
 		font-size: 85%;
 	}
