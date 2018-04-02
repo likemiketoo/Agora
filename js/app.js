@@ -89,9 +89,11 @@ $(document).ready(function (){
 	};
 
 	firebase.initializeApp(config);
-
 	
 	var database = firebase.database();
+	var storage = firebase.storage();
+	
+
 	
 	var ref = database.ref("/");
 	var dbRefObject = ref.child('users');
@@ -279,6 +281,23 @@ $(document).ready(function (){
   		});
 	}
 	
+	
+	
+	var uploadBtn = document.getElementById('fileSelect');
+	var usrPic;
+	$('#fileSelect').on('change', function(e){
+		usrPic = e.target.files[0];
+		
+		console.log(usrPic);
+		
+		var storageRef = storage.ref('profile_pictures/' + usrPic.name);
+		
+		storageRef.put(usrPic);
+	});
+	
+	
+	
+	
 	//grabs user info
 	$('#submitButton').click(function()
     {
@@ -291,9 +310,28 @@ $(document).ready(function (){
 		var usrEmail = $("#emailInp").val();
 		//console.log(usrEmail);
 		var usrDescr = $("#descrInp").val();
+		
+		
+		$('#fileSelect').val(function(e){
+			usrPic = e.target.files[0];
+
+			console.log(usrPic);
+
+			var storageRef = storage.ref('profile_pictures/' + usrPic.name);
+
+			storageRef.put(usrPic);
+		});
+		
 		//console.log(usrDescr);
-		var usrImg = $("#imgInp").val();
-		//console.log(usrImg);
+		//var usrImg = $("#fileSelect").val();
+		//console.log("Image!!!!" + usrImg);
+		
+		//var usrImg = $("fileSelect").target.files[0]; 
+		
+		//var storageRef = storage.ref('profile_pictures/' + usrImg.name);
+		
+		//var upl = storageRef.put(usrImg);
+		//var mountainsRef = storageRef.child(usrImg);
 		
 		var usersRef = ref.child(categ).child('users');
 		usersRef.update({
