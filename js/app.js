@@ -229,9 +229,9 @@ $(document).ready(function (){
 	current = localStorage.getItem("current");
 	console.log(current);
 	
-
+	//Restpre this part
 	//Dynamically updates div according to database
-	ref.child(current).child('users').on('child_added', function(snapshot, prevChildKey)
+	/*ref.child(current).child('users').on('child_added', function(snapshot, prevChildKey)
 	{
 		var newPost = snapshot.val();
 		console.log("Username: " + newPost.username);
@@ -261,6 +261,8 @@ $(document).ready(function (){
 
 	});
 	
+	*/ 
+	
 	//Updates email input with user's current email
 	document.getElementById('emailInp').value = usrMail;
 	document.getElementById('nameInp').value = usrNm;
@@ -284,15 +286,18 @@ $(document).ready(function (){
 	
 	
 	var uploadBtn = document.getElementById('fileSelect');
+	
+	
 	var usrPic;
 	$('#fileSelect').on('change', function(e){
 		usrPic = e.target.files[0];
 		
 		console.log(usrPic);
 		
-		var storageRef = storage.ref('profile_pictures/' + usrPic.name);
+		//var storageRef = storage.ref('profile_pictures/' + usrPic.name);
 		
-		storageRef.put(usrPic);
+		//storageRef.put(usrPic);
+		return usrPic;
 	});
 	
 	
@@ -301,6 +306,8 @@ $(document).ready(function (){
 	//grabs user info
 	$('#submitButton').click(function()
     {
+		
+		
 		var categ = $("#FormControlSelect1").val();
 		console.log(categ);
 		var usrsName = $("#nameInp").val();
@@ -311,16 +318,6 @@ $(document).ready(function (){
 		//console.log(usrEmail);
 		var usrDescr = $("#descrInp").val();
 		
-		
-		$('#fileSelect').val(function(e){
-			usrPic = e.target.files[0];
-
-			console.log(usrPic);
-
-			var storageRef = storage.ref('profile_pictures/' + usrPic.name);
-
-			storageRef.put(usrPic);
-		});
 		
 		//console.log(usrDescr);
 		//var usrImg = $("#fileSelect").val();
@@ -342,8 +339,56 @@ $(document).ready(function (){
 			description: usrDescr
 			}
 		});
-//		email: profile.getEmail()
+		
+		
+		
+		
+		//var uploadTask = storageRef.put(usrPic);
+		
+//		uploadTask.on('state_changed', function(snapshot){
+//			
+//			
+//		}, function(){
+//			var dlURL = uploadTask.snapshot.downloadURL;
+//			console.log('*+*+*+*+_' + dlURL);
+//		});
+		
+		
+		//uploads file
+//		$('#fileSelect').val(function(e){
+//			var usrPic = e.files[0];
+//
+//			console.log('PICTURE' + usrPic);
+//			
+//			var storageRef = storage.ref('profile_pictures/' + usrPic.name);
+//			
+//			console.log('*+*+' + e.downloadURL());
+//			
+//		});
+		
+		
+		
 	});
+	
+	$('#submitButton').on('click', function(e)
+    {
+		e.preventDefault();
+		console.log(usrPic);
+		
+		var storageRef = storage.ref('profile_pictures/' + usrPic.name);
+		
+		storageRef.put(usrPic);
+		
+		storageRef.put(usrPic).on('state_changed', function(snapshot){
+			
+			
+		}, function(){
+			console.log('***********' + storageRef.put(usrPic).snapshot.downloadURL);
+		});
+		
+		
+	});
+	
 	
 	
 	//	var usersRef = ref.child("users");
