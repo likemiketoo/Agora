@@ -776,22 +776,22 @@ nav
 
 #entre1
 {
-	background-image: url(/assets/barberex1.png);
+/*	background-image: url(/assets/barberex1.png);*/
 }
 
 #entre2
 {
-	background-image: url(/assets/barberex2.png);
+/*	background-image: url(/assets/barberex2.png);*/
 }
 
 #entre3
 {
-	background-image: url(/assets/barberex3.png);
+/*	background-image: url(/assets/barberex3.png);*/
 }
 
 #entre4
 {
-	background-image: url(/assets/barberex4.png);
+/*	background-image: url(/assets/barberex4.png);*/
 }
 
 #entre1Text, #entre2Text, #entre3Text, #entre4Text, #entre5Text, #entre6Text, #entre7Text, #entre8Text, #entre9Text
@@ -803,7 +803,7 @@ nav
 	width: 100%;
 	font-family: 'PanamaLight';
 	text-align: center;
-	font-size: 100%;
+	font-size: 15px;
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
 	
@@ -819,10 +819,10 @@ nav
 }
 
 
-#entre1:hover + #entre1Text, #entre2:hover + #entre2Text, #entre3:hover + #bentreText, #entre4:hover + #entre4Text, #entre5:hover + #entre5Text, #entre6:hover + #entre6Text, #entre7:hover + #entre7Text, #entre8:hover + #entre8Text, #entre9:hover + #entre9Text
+#entre1:hover + #entre1Text, #entre2:hover + #entre2Text, #entre3:hover + #entre3Text, #entre4:hover + #entre4Text, #entre5:hover + #entre5Text, #entre6:hover + #entre6Text, #entre7:hover + #entre7Text, #entre8:hover + #entre8Text, #entre9:hover + #entre9Text
 {
 	color: var(--main-color);
-	font-size: 120%;
+	font-size: 16px;
 	transition: all .2s ease-in-out;
 }
 
@@ -1084,7 +1084,7 @@ nav
 		height: 70px;
 	}
 	
-	#entre1Text, #entre2Text, #entre3Text, #entre4Text, #entre5Text, #entre6Text, #entre7Text, #entre8Text
+	#entre1Text, #entre2Text, #entre3Text, #entre4Text, #entre5Text, #entre6Text, #entre7Text, #entre8Text, #entre9Text
 	{
 		font-size: 11px;
 		padding: 0;
@@ -1092,8 +1092,8 @@ nav
 		line-height: 11px;
 	}
 	
-	#entre1:hover + #entre1Text, #entre2:hover + #entre2Text, #entre3:hover + #entre3Text, #entre4:hover + #entre4Text
+	#entre1:hover + #entre1Text, #entre2:hover + #entre2Text, #entre3:hover + #entre3Text, #entre4:hover + #entre4Text, #entre5:hover + #entre5Text, #entre6:hover + #entre6Text, #entre7:hover + #entre7Text, #entre8:hover + #entre8Text, #entre9:hover + #entre9Text
 	{
-		font-size: 85%;
-	}
+		font-size: 13px;
+	
 }

@@ -3,10 +3,10 @@
 function onSignIn(googleUser)
 {
 	var profile = googleUser.getBasicProfile();
-	console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-	console.log('Name: ' + profile.getName());
-	console.log('Image URL: ' + profile.getImageUrl());
-	console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+	//console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+	//console.log('Name: ' + profile.getName());
+	//console.log('Image URL: ' + profile.getImageUrl());
+	//console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 	jQuery('#signOut').css({"visibility": "visible"});
 	
 	//pass email to main function
@@ -125,7 +125,7 @@ $(document).ready(function (){
 		current = 'Barbers';
 		localStorage.setItem("current", current);
 		current = localStorage.getItem("current");
-		//console.log(current);
+		console.log(current);
 		
 	});
 	
@@ -137,7 +137,7 @@ $(document).ready(function (){
 		current = 'Tutors';
 		localStorage.setItem("current", current);
 		current = localStorage.getItem("current");
-		//console.log(current);
+		console.log(current);
 		
 	});
 	
@@ -149,7 +149,7 @@ $(document).ready(function (){
 		current = 'Nail Techs';
 		localStorage.setItem("current", current);
 		current = localStorage.getItem("current");
-		//console.log(current);
+		console.log(current);
 		
 	});
 	
@@ -161,7 +161,7 @@ $(document).ready(function (){
 		current = 'Shoe Restoration';
 		localStorage.setItem("current", current);
 		current = localStorage.getItem("current");
-		//console.log(current);
+		console.log(current);
 		
 	});
 	
@@ -173,7 +173,7 @@ $(document).ready(function (){
 		current = 'Beauty';
 		localStorage.setItem("current", current);
 		current = localStorage.getItem("current");
-		//console.log(current);
+		console.log(current);
 		
 	});
 	
@@ -185,7 +185,7 @@ $(document).ready(function (){
 		current = 'Repair';
 		localStorage.setItem("current", current);
 		current = localStorage.getItem("current");
-		//console.log(current);
+		console.log(current);
 		
 	});
 	
@@ -197,7 +197,7 @@ $(document).ready(function (){
 		current = 'Tailor';
 		localStorage.setItem("current", current);
 		current = localStorage.getItem("current");
-		//console.log(current);
+		console.log(current);
 		
 	});
 	
@@ -209,7 +209,7 @@ $(document).ready(function (){
 		current = 'Producers';
 		localStorage.setItem("current", current);
 		current = localStorage.getItem("current");
-		//console.log(current);
+		console.log(current);
 		
 	});
 	
@@ -221,7 +221,7 @@ $(document).ready(function (){
 		current = 'Trainers';
 		localStorage.setItem("current", current);
 		current = localStorage.getItem("current");
-		//console.log(current);
+		console.log(current);
 		
 	});
 	
@@ -231,41 +231,53 @@ $(document).ready(function (){
 	
 	//Restpre this part
 	//Dynamically updates div according to database
-	/*ref.child(current).child('users').on('child_added', function(snapshot, prevChildKey)
+	$(function()
 	{
-		var newPost = snapshot.val();
-		console.log("Username: " + newPost.username);
+  		if($('body').is('.page2'))
+		{
+			ref.child(current).child('users').on('child_added', function(snapshot, prevChildKey)
+			{
+				var newPost = snapshot.val();
+				console.log("Username: " + newPost.username);
 
-		temp = temp +1;
-		var tempString = temp.toString();
-		var newString = "entre" + tempString + 'Text';
+				temp = temp +1;
+				var tempString = temp.toString();
+				var newString = "entre" + tempString + 'Text';
 
-		console.log(newString);		
+				console.log(newString);		
 
-		document.getElementById(newString).innerText = JSON.stringify(newPost.username);
+				document.getElementById(newString).innerText = JSON.stringify(newPost.username);
 
-	});
+			});
 
-	barberUsers.on('child_removed', function(snapshot, prevChildKey)
-	{
-		var newPost = snapshot.val();
-		console.log("Username: " + newPost.username);
+			barberUsers.on('child_removed', function(snapshot, prevChildKey)
+			{
+				var newPost = snapshot.val();
+				console.log("Username: " + newPost.username);
 
-		temp = temp +1;
-		var tempString = temp.toString();
-		var newString = "entre" + tempString + 'Text';
+				temp = temp +1;
+				var tempString = temp.toString();
+				var newString = "entre" + tempString + 'Text';
 
-		console.log(newString);		
+				console.log(newString);		
 
-		document.getElementById(newString).innerText = JSON.stringify(newPost.username);
+				document.getElementById(newString).innerText = JSON.stringify(newPost.username);
 
+			});
+  		}
 	});
 	
-	*/ 
 	
-	//Updates email input with user's current email
-	document.getElementById('emailInp').value = usrMail;
-	document.getElementById('nameInp').value = usrNm;
+	$(function()
+	{
+  		if($('body').is('.page4'))
+		{
+			//Updates email input with user's current email
+			document.getElementById('emailInp').value = usrMail;
+			document.getElementById('nameInp').value = usrNm;
+  		}
+	});
+	
 
 	
 	
@@ -377,57 +389,26 @@ $(document).ready(function (){
 		
 		var storageRef = storage.ref('profile_pictures/' + usrPic.name);
 		
-		storageRef.put(usrPic);
-		
-		storageRef.put(usrPic).on('state_changed', function(snapshot){
+		storageRef.put(usrPic).then(function(){
 			
-			
-		}, function(){
-			console.log('***********' + storageRef.put(usrPic).snapshot.downloadURL);
+			//alert("Uploaded!");
 		});
+		
+		alert("Uploaded!");
+		
+		
+//		storageRef.put(usrPic).on('state_changed', function(snapshot){
+//			console.log("Upload Tings fam");
+//			alert("Uploaded!");
+//			var currImage = firebase.storage().ref().child(usrPic);
+//			console.log('***********' + currImage.getDownloadURL());
+//			
+//		}, function(){
+//			
+//		});
 		
 		
 	});
 	
-	
-	
-	//	var usersRef = ref.child("users");
-//	usersRef.set({
-//	  Bob: {
-//		username: "June 23, 1912",
-//		email: "Alan Turing"
-//	  },
-//	  gracehop: {
-//		username: "December 9, 1906",
-//		email: "Grace Hopper"
-//	  }
-//	});
-	
-
-
 });
 
-
-
-
-
-//    
-//    $('.container-fluid').on('click',function(e)
-//    {
-//        e.preventDefault();
-//        $('body').removeClass('nav-expanded');
-//    });
-//    
-    
-//var $root = $('html, body');
-//    $('a').click(function()
-//    {
-//        $root.animate({
-//            scrollTop: $( $.attr(this, 'href') ).offset().top
-//        }, 900);
-//        return false;
-//    });
-
-//"rules": {
-//    ".read": "auth != null",
-//    ".write": "auth != null"
