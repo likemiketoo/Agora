@@ -30,7 +30,7 @@ function signOut()
 		console.log('User signed out.');
 	});
 	jQuery('#signOut').css({"visibility": "hidden"});
- }
+}
 
 
 $(document).ready(function (){							
@@ -229,8 +229,7 @@ $(document).ready(function (){
 	current = localStorage.getItem("current");
 	console.log(current);
 	
-	//Restpre this part
-	//Dynamically updates div according to database
+	//Dynamically updates div according to selected category
 	$(function()
 	{
   		if($('body').is('.page2'))
@@ -247,6 +246,8 @@ $(document).ready(function (){
 				console.log(newString);		
 
 				document.getElementById(newString).innerText = JSON.stringify(newPost.username);
+				
+				ref.child(current).child('users').child(newPost.username).child('profile');
 
 			});
 
@@ -298,7 +299,6 @@ $(document).ready(function (){
 	
 	
 	var uploadBtn = document.getElementById('fileSelect');
-	
 	
 	var usrPic;
 	$('#fileSelect').on('change', function(e){
@@ -352,34 +352,6 @@ $(document).ready(function (){
 			}
 		});
 		
-		
-		
-		
-		//var uploadTask = storageRef.put(usrPic);
-		
-//		uploadTask.on('state_changed', function(snapshot){
-//			
-//			
-//		}, function(){
-//			var dlURL = uploadTask.snapshot.downloadURL;
-//			console.log('*+*+*+*+_' + dlURL);
-//		});
-		
-		
-		//uploads file
-//		$('#fileSelect').val(function(e){
-//			var usrPic = e.files[0];
-//
-//			console.log('PICTURE' + usrPic);
-//			
-//			var storageRef = storage.ref('profile_pictures/' + usrPic.name);
-//			
-//			console.log('*+*+' + e.downloadURL());
-//			
-//		});
-		
-		
-		
 	});
 	
 	$('#submitButton').on('click', function(e)
@@ -392,23 +364,25 @@ $(document).ready(function (){
 		storageRef.put(usrPic).then(function(){
 			
 			//alert("Uploaded!");
-		});
-		
+			//Adds profile pcture url to realtime database
+			storageRef.getDownloadURL().then(function(url)
+			{
+				console.log(url);
+				
+				var categ = $("#FormControlSelect1").val();
+				console.log(categ);
+				
+				var usrname = $("#usrNameInp").val();
+				
+				var usersRef = ref.child(categ).child('users');
+				usersRef.child(usrname).update(
+				{
+					profile_picture: url
+				});
+			});
 		alert("Uploaded!");
 		
-		
-//		storageRef.put(usrPic).on('state_changed', function(snapshot){
-//			console.log("Upload Tings fam");
-//			alert("Uploaded!");
-//			var currImage = firebase.storage().ref().child(usrPic);
-//			console.log('***********' + currImage.getDownloadURL());
-//			
-//		}, function(){
-//			
-//		});
-		
-		
+		});
 	});
-	
 });
 
