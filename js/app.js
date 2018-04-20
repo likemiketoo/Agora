@@ -218,7 +218,7 @@ $(document).ready(function (){
 		console.log("Trainer Selected");
 		//ref.update({
 		//})
-		current = 'Trainers';
+		current = 'Personal Trainers';
 		localStorage.setItem("current", current);
 		current = localStorage.getItem("current");
 		console.log(current);
