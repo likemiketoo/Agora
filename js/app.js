@@ -65,7 +65,7 @@ $(document).ready(function (){
             //Changes text size
             $("#splashText").css(
             {
-                fontSize: 15
+                fontSize: 10
             });
             
             //Appends new text to learn more

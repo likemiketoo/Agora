@@ -980,6 +980,11 @@ nav
 	text-align: center;
 }
 
+#descrDiv
+{
+	text-align: center;
+	word-wrap: normal;
+}
 
 /*fonts*/
 
@@ -1060,7 +1065,7 @@ nav
 	
 	#servLabelDiv, #createDiv
 	{
-		font-size: 35px;
+		font-size: 30px;
 	}
 	
 	#servSub
@@ -1096,5 +1101,18 @@ nav
 	#entre1:hover + #entre1Text, #entre2:hover + #entre2Text, #entre3:hover + #entre3Text, #entre4:hover + #entre4Text, #entre5:hover + #entre5Text, #entre6:hover + #entre6Text, #entre7:hover + #entre7Text, #entre8:hover + #entre8Text, #entre9:hover + #entre9Text
 	{
 		font-size: 13px;
+	
+	}
+	
+	#servSub, #entre1Text, #entre2Text, #entre3Text, #entre4Text, #entre5Text, #entre6Text, #entre7Text, #entre8Text, #entre9Text
+	{
+		font-size: 10px;
+	}
+	
+	#contactPay, #contaDiv
+	{
+		margin: 0 auto;
+		padding: 0;
+	}
 	
 }
