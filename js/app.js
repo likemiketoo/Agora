@@ -1,5 +1,5 @@
 //var usrMail;
-
+//Google Login system
 function onSignIn(googleUser)
 {
 	var profile = googleUser.getBasicProfile();
@@ -21,7 +21,7 @@ function onSignIn(googleUser)
 	//console.log("Inital " + usrMail);
 }
 
-
+//Sign out function
 function signOut()
 {
 	var auth2 = gapi.auth2.getAuthInstance();
@@ -32,14 +32,14 @@ function signOut()
 	jQuery('#signOut').css({"visibility": "hidden"});
 }
 
-
+//Everything in the function is triggered when the page is done loading 
 $(document).ready(function (){							
+	//Permanent variables that sustain through browser changes
 	var usrMail = localStorage.getItem("usrMail");
 	var usrNm = localStorage.getItem("usrNm");
+	var slctdVendor = localStorage.getItem("slctdVendor");
 	
-   //Navigation Menu Slider
-	//console.log("WORKING " + usrml);
-	
+   //Navigation Menu slider animation
     $('#nav-expander').on('click',function(e)
     {
         e.preventDefault();
@@ -68,7 +68,7 @@ $(document).ready(function (){
                 fontSize: 15
             });
             
-            //Appends new text
+            //Appends new text to learn more
             $('#splashText').slideDown('slow', function()
             {
             $(splashText).append('The focus of this project is to enable entrepreneurs to distribute and raise awareness of their services and collect payment in a convenient manner through the mobile application and website. Both will allow for improved advertising of both goods and services on the campus of Norfolk State University where many talented entrepreneurs and students provide services.');
@@ -94,12 +94,12 @@ $(document).ready(function (){
 	var storage = firebase.storage();
 	
 
-	
 	var ref = database.ref("/");
-	var dbRefObject = ref.child('users');
-	var Barbers = ref.child('Barbers');
-	var barberUsers = Barbers.child('users');
-	
+	var dbRefObjecte = ref.child('emails');
+	var dbRefObjectu = ref.child('usernames');
+	var dbRefObjectn = ref.child('names');
+	var dbRefObjectd = ref.child('descriptions');
+	var dbRefObjectp = ref.child('profilePictures');
 	
 	
 	//Sync object changes
@@ -234,24 +234,48 @@ $(document).ready(function (){
 	{
   		if($('body').is('.page2'))
 		{
-			ref.child(current).child('users').on('child_added', function(snapshot, prevChildKey)
+			var usrArray = [];
+			ref.child(current).child('usernames').on('child_added', function(snapshot, prevChildKey)
 			{
 				var newPost = snapshot.val();
 				console.log("Username: " + newPost.username);
-
-				temp = temp +1;
-				var tempString = temp.toString();
-				var newString = "entre" + tempString + 'Text';
-
-				console.log(newString);		
-
-				document.getElementById(newString).innerText = JSON.stringify(newPost.username);
 				
-				ref.child(current).child('users').child(newPost.username).child('profile');
+				//interates through strings, updating divs with each change
+				temp = temp +1;
+				var tempString = temp.toString();
+				var newString = "entre" + tempString + 'Text';
+
+				console.log(newString);		
+
+				//document.getElementById(newString).innerText = JSON.stringify(newPost.username);
+				
+				//var jqNp = $((newPost.username);
+				$('#' + newString).append(newPost.username);
+				
+				
+				usrArray[temp - 1] = newPost.username;
+				
+			
+				ref.child(current).child('profileImgUrls').child(newPost.username).on('child_added', function(snapshot, prevChildKey)
+				{
+				
+					var testImg = snapshot.val();
+					//console.log("******" + testImg);
+
+					var picString = "entre" + tempString;
+
+					$('#' + picString).css(
+						'background-image', 'url(' + testImg + ')');
+				});
+				//ref.child(current).child('users').child(newPost.username).child('profile');
+				return usrArray;
 
 			});
+		
+			
+			
 
-			barberUsers.on('child_removed', function(snapshot, prevChildKey)
+			ref.child(current).child('usernames').on('child_removed', function(snapshot, prevChildKey)
 			{
 				var newPost = snapshot.val();
 				console.log("Username: " + newPost.username);
@@ -262,12 +286,83 @@ $(document).ready(function (){
 
 				console.log(newString);		
 
-				document.getElementById(newString).innerText = JSON.stringify(newPost.username);
+				document.getElementById(newString).textContent += newPost.username;
 
 			});
+			
+			
+			localStorage.setItem("usrArray", JSON.stringify(usrArray));
+			
+			usrArray = JSON.parse(localStorage.getItem("usrArray"));
+				
+			console.log(usrArray);
+			
+			
+			
+			$('#entre1').click(function(){
+				
+				slctdVendor = usrArray[0];
+				localStorage.setItem("slctdVendor", slctdVendor);
+				slctdVendor = localStorage.getItem("slctdVendor");
+				console.log(slctdVendor);
+			});
+			
+			$('#entre2').click(function(){
+				
+				slctdVendor = usrArray[1];
+				localStorage.setItem("slctdVendor", slctdVendor);
+				slctdVendor = localStorage.getItem("slctdVendor");
+				console.log(slctdVendor);
+			});
+			
+			$('#entre3').click(function(){
+				
+				slctdVendor = usrArray[2];
+				localStorage.setItem("slctdVendor", slctdVendor);
+				slctdVendor = localStorage.getItem("slctdVendor");
+				console.log(slctdVendor);
+			});
+			
+			$('#entre4').click(function(){
+				
+				slctdVendor = usrArray[3];
+				localStorage.setItem("slctdVendor", slctdVendor);
+				slctdVendor = localStorage.getItem("slctdVendor");
+				console.log(slctdVendor);
+			});
+			$('#entre5').click(function(){
+				
+				slctdVendor = usrArray[4];
+				localStorage.setItem("slctdVendor", slctdVendor);
+				slctdVendor = localStorage.getItem("slctdVendor");
+				console.log(slctdVendor);
+			});
+		
+			
   		}
 	});
 	
+	$(function()
+	{
+		if($('body').is('.page3'))
+		{
+			ref.child(current).child('usernames').child(slctdVendor).on('child_added', function(snapshot, prevChildKey)
+			{
+				var info = snapshot.val();
+				console.log(info);
+				
+				document.getElementById('servLabelDiv').innerText = JSON.stringify(info);
+			});
+			
+			ref.child(current).child('descriptions').child(slctdVendor).on('child_added', function(snapshot, prevChildKey)
+			{
+				var descr = snapshot.val();
+				console.log(descr);
+				
+				document.getElementById('descrDiv').innerText = JSON.stringify(descr);
+			});
+		}
+	});
 	
 	$(function()
 	{
@@ -284,7 +379,7 @@ $(document).ready(function (){
 	
 	function writeUserData(userId, name, username, email, imageUrl, description, category)
 	{
-		database.ref('users/').set(
+		database.ref('/').set(
 		{
 			category: category,
 			name: name,
@@ -292,8 +387,8 @@ $(document).ready(function (){
 			email: email,
 			description: description,
 			profile_picture: imageUrl
-			
   		});
+		
 	}
 	
 	
@@ -318,10 +413,9 @@ $(document).ready(function (){
 	//grabs user info
 	$('#submitButton').click(function()
     {
-		
-		
+				
 		var categ = $("#FormControlSelect1").val();
-		console.log(categ);
+		//console.log(categ);
 		var usrsName = $("#nameInp").val();
 		//console.log(usrsName);
 		var usrname = $("#usrNameInp").val();
@@ -342,13 +436,35 @@ $(document).ready(function (){
 		//var upl = storageRef.put(usrImg);
 		//var mountainsRef = storageRef.child(usrImg);
 		
-		var usersRef = ref.child(categ).child('users');
-		usersRef.update({
+//		var usersRef = ref.child(categ);
+//		usersRef.update({
+//			[usrname]: {
+//			name: usrsName,
+//			username: usrname,
+//			email: usrEmail,
+//			description: usrDescr
+//			}
+//		});
+		
+		ref.child(categ).child('emails').update({
 			[usrname]: {
-			name: usrsName,
-			username: usrname,
-			email: usrEmail,
+			email: usrEmail
+			}
+		});
+		
+		ref.child(categ).child('names').update({
+			[usrname]: {
+			name: usrsName
+			}
+		});
+		ref.child(categ).child('descriptions').update({
+			[usrname]: {
 			description: usrDescr
+			}
+		});
+		ref.child(categ).child('usernames').update({
+			[usrname]: {
+			username: usrname
 			}
 		});
 		
@@ -356,33 +472,46 @@ $(document).ready(function (){
 	
 	$('#submitButton').on('click', function(e)
     {
-		e.preventDefault();
-		console.log(usrPic);
-		
-		var storageRef = storage.ref('profile_pictures/' + usrPic.name);
-		
-		storageRef.put(usrPic).then(function(){
-			
-			//alert("Uploaded!");
-			//Adds profile pcture url to realtime database
-			storageRef.getDownloadURL().then(function(url)
-			{
-				console.log(url);
-				
+		if(typeof usrPic != 'undefined')
+		{
+			e.preventDefault();
+			console.log(usrPic);
+
+			var storageRef = storage.ref('profile_pictures/' + usrPic.name);
+
+			storageRef.put(usrPic).then(function(){
+
 				var categ = $("#FormControlSelect1").val();
-				console.log(categ);
-				
 				var usrname = $("#usrNameInp").val();
-				
-				var usersRef = ref.child(categ).child('users');
-				usersRef.child(usrname).update(
+				//alert("Uploaded!");
+				//Adds profile pcture url to realtime database
+				storageRef.getDownloadURL().then(function(url)
 				{
-					profile_picture: url
+					console.log("Picture Url!!!!!");
+					console.log(url);
+
+					ref.child(categ).child('profileImgUrls').update({
+						[usrname]: {
+						profile_picture: url
+						}
+					});
+
 				});
+				alert("Uploaded!");
 			});
-		alert("Uploaded!");
+		}
+		else	
+		{
+			var categ = $("#FormControlSelect1").val();
+			var usrname = $("#usrNameInp").val();
+			ref.child(categ).child('profileImgUrls').update({
+				[usrname]: {
+				profile_picture: 'https://firebasestorage.googleapis.com/v0/b/agora-1521658563641.appspot.com/o/profile_pictures%2FagoraPlaceholder.png?alt=media&token=6d30128d-d3e5-4c9d-a05f-0be5ee727378'
+				}
+			});
+			alert("Uploaded!");
+		}
 		
-		});
 	});
 });
 
