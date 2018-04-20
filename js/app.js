@@ -194,7 +194,7 @@ $(document).ready(function (){
 		console.log("Tailor Selected");
 		//ref.update({
 		//})
-		current = 'Tailor';
+		current = 'Tailors';
 		localStorage.setItem("current", current);
 		current = localStorage.getItem("current");
 		console.log(current);
